@@ -1439,7 +1439,7 @@ button:focus {
     6. Preloader Area Start
 -------------------------------------------*/
 #preloader {
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
     position: fixed;
     top: 0;
     bottom: 0;
@@ -1991,12 +1991,12 @@ button:focus {
     padding-right: 46px;
     padding-bottom: 66px;
 }
-@media screen and (max-width:1399px) {
+@media screen and (max-width: 1399px) {
     .testimonial-item {
         padding-right: 0;
     }
 }
-@media screen and (max-width:991px) {
+@media screen and (max-width: 991px) {
     .testimonial-item {
         padding-bottom: 30px;
     }
@@ -2005,15 +2005,15 @@ button:focus {
     flex: 1 0 auto;
     max-width: 224px;
 }
-@media screen and (max-width:767px) {
+@media screen and (max-width: 767px) {
     .testimonial-item.testimonial-landing-2 > div > div:first-child {
         margin: 0 auto;
-    }    
+    }
 }
-@media screen and (max-width:575px) {
+@media screen and (max-width: 575px) {
     .testimonial-item > div > div:first-child {
         margin: 0 auto;
-    }    
+    }
 }
 .testimonial-item > div > div:first-child img {
     max-width: 100%;
@@ -2035,11 +2035,11 @@ button:focus {
     color: #6e6e96;
 }
 
-@media screen and (max-width:575px) {
-    .testimonial-bottom-content{
+@media screen and (max-width: 575px) {
+    .testimonial-bottom-content {
         text-align: center;
     }
-    .testimonial-bottom-content .course-rating{
+    .testimonial-bottom-content .course-rating {
         justify-content: center;
     }
 }

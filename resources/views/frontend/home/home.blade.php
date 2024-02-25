@@ -35,7 +35,9 @@
                         <div class="hero-content">
                             <h6 class="come-for-learn-text">
                                 @foreach (@$home->banner_mini_words_title ?? [] as $banner_mini_word)
-                                    {{-- <span>{{ __($banner_mini_word) }}</span> --}}
+                                    <span>
+                                        {{ __($banner_mini_word) }}
+                                    </span>
                                 @endforeach
                             </h6>
 

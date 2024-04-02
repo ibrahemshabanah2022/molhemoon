@@ -306,7 +306,7 @@ Route::group(['prefix' => 'badge', 'as' => 'ranking.'], function () {
     Route::post('refresh/distribute', [RankingLevelController::class, 'resetBadge'])->name('reset_badge');
 });
 
-Route::group(['prefix'=>'skills'],function(){
+Route::group(['prefix' => 'skills'], function () {
     Route::get('index', [SkillController::class, 'index'])->name('skill.index');
     Route::post('store', [SkillController::class, 'store'])->name('skill.store');
     Route::patch('update/{id}', [SkillController::class, 'update'])->name('skill.update');
@@ -330,8 +330,8 @@ Route::prefix('language')->group(function () {
     Route::get('translate/{id}', [LanguageController::class, 'translateLanguage'])->name('language.translate');
     Route::post('update-translate/{id}', [LanguageController::class, 'updateTranslate'])->name('update.translate');
     Route::get('delete/{id}', [LanguageController::class, 'delete'])->name('language.delete');
-    Route::post('import',[LanguageController::class, 'import'])->name('language.import');
-    Route::post('update-language/{id}',[LanguageController::class, 'updateLanguage'])->name('update-language');
+    Route::post('import', [LanguageController::class, 'import'])->name('language.import');
+    Route::post('update-language/{id}', [LanguageController::class, 'updateLanguage'])->name('update-language');
 });
 
 Route::group(['prefix' => 'contact', 'as' => 'contact.'], function () {
@@ -379,8 +379,8 @@ Route::group(['prefix' => 'menus', 'as' => 'menu.'], function () {
 });
 //End:: Menu
 
-Route::name('admin.')->group(function (){
-    Route::group(['prefix' => 'forum', 'as' => 'forum.'], function (){
+Route::name('admin.')->group(function () {
+    Route::group(['prefix' => 'forum', 'as' => 'forum.'], function () {
         Route::get('category-index', [ForumCategoryController::class, 'index'])->name('category.index');
         Route::post('category-store', [ForumCategoryController::class, 'store'])->name('category.store');
         Route::patch('category-update/{uuid}', [ForumCategoryController::class, 'update'])->name('category.update');
@@ -410,7 +410,7 @@ Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
     Route::get('maintenance-mode-changes', [SettingController::class, 'maintenanceMode'])->name('maintenance');
     Route::post('maintenance-mode-changes', [SettingController::class, 'maintenanceModeChange'])->name('maintenance.change')->middleware('isDemo');
     //End:: Maintenance Mode
-   
+
     //Start:: Coming Soon Mode
     Route::get('coming-soon-mode-changes', [SettingController::class, 'comingSoonMode'])->name('coming-soon');
     Route::post('coming-soon-mode-changes', [SettingController::class, 'comingSoonModeChange'])->name('coming-soon.change')->middleware('isDemo');
@@ -616,8 +616,6 @@ Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
     Route::post('version-update', [VersionUpdateController::class, 'versionFileUpdateStore'])->name('file-version-update-store')->middleware('isDemo');
     Route::get('version-update-execute', [VersionUpdateController::class, 'versionUpdateExecute'])->name('file-version-update-execute')->middleware('isDemo');
     Route::get('version-delete', [VersionUpdateController::class, 'versionFileUpdateDelete'])->name('file-version-delete')->middleware('isDemo');
-
-    
 });
 
 Route::group(['prefix' => 'addon', 'as' => 'admin.addon.'], function () {
@@ -640,16 +638,16 @@ Route::get('refund-policy', [PolicyController::class, 'refundPolicy'])->name('ad
 Route::post('refund-policy', [PolicyController::class, 'refundPolicyStore'])->name('admin.refund-policy.store');
 
 
-Route::group(['prefix' => 'affiliate','as' => 'affiliate.'], function () {
+Route::group(['prefix' => 'affiliate', 'as' => 'affiliate.'], function () {
 
     // TODO:don't delete,  this will need
-//    Route::get('/affiliator-history', function () {
-//        return view('admin.affiliate.affiliator-history');
-//    })->name('affiliator-history');
+    //    Route::get('/affiliator-history', function () {
+    //        return view('admin.affiliate.affiliator-history');
+    //    })->name('affiliator-history');
 
-//    Route::get('/payouts', function () {
-//        return view('admin.affiliate.payouts');
-//    })->name('payouts');
+    //    Route::get('/payouts', function () {
+    //        return view('admin.affiliate.payouts');
+    //    })->name('payouts');
 
     Route::get('affiliation-settings', [SettingController::class, 'referralSettings'])->name('affiliation-settings');
     Route::post('referral-settings-update', [SettingController::class, 'referralSettingsUpdate'])->name('referral-settings.update');

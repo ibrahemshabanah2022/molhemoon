@@ -156,7 +156,7 @@
                         <div class="status__box__text">
                             <h2 class="color-green">
 
-                                @if(get_currency_placement() == 'after')
+                                @if (get_currency_placement() == 'after')
                                     {{ $total_paid_sales }} {{ get_currency_symbol() }}
                                 @else
                                     {{ get_currency_symbol() }} {{ $total_paid_sales }}
@@ -185,7 +185,7 @@
                         <div class="status__box__text">
                             <h2 class="color-purple">
 
-                                @if(get_currency_placement() == 'after')
+                                @if (get_currency_placement() == 'after')
                                     {{ $total_platform_charge }} {{ get_currency_symbol() }}
                                 @else
                                     {{ get_currency_symbol() }} {{ $total_platform_charge }}
@@ -202,7 +202,7 @@
                         </div>
                         <div class="status__box__text">
                             <h2 class="color-blue">
-                                @if(get_currency_placement() == 'after')
+                                @if (get_currency_placement() == 'after')
                                     {{ $total_platform_charge_this_month }} {{ get_currency_symbol() }}
                                 @else
                                     {{ get_currency_symbol() }} {{ $total_platform_charge_this_month }}
@@ -220,7 +220,7 @@
                         </div>
                         <div class="status__box__text">
                             <h2 class="color-purple">
-                                @if(get_currency_placement() == 'after')
+                                @if (get_currency_placement() == 'after')
                                     {{ $total_admin_commission }} {{ get_currency_symbol() }}
                                 @else
                                     {{ get_currency_symbol() }} {{ $total_admin_commission }}
@@ -238,11 +238,12 @@
                         </div>
                         <div class="status__box__text">
                             <h2 class="color-red">
-                                @if(get_currency_placement() == 'after')
+                                @if (get_currency_placement() == 'after')
                                     {{ $total_admin_commission_this_month }} {{ get_currency_symbol() }}
                                 @else
                                     {{ get_currency_symbol() }} {{ $total_admin_commission_this_month }}
-                                @endif</h2>
+                                @endif
+                            </h2>
                             <h3>{{ __('Total Sell Commission (Current Month)') }}</h3>
                         </div>
                     </div>
@@ -253,11 +254,13 @@
                             <img src="{{ asset('admin') }}/images/admin-dashboard-icons/money.png" alt="icon">
                         </div>
                         <div class="status__box__text">
-                            <h2 class="color-blue"> @if(get_currency_placement() == 'after')
+                            <h2 class="color-blue">
+                                @if (get_currency_placement() == 'after')
                                     {{ $total_revenue }} {{ get_currency_symbol() }}
                                 @else
                                     {{ get_currency_symbol() }} {{ $total_revenue }}
-                                @endif</h2>
+                                @endif
+                            </h2>
                             <h3>{{ __('Total Revenue') }}</h3>
                         </div>
                     </div>
@@ -269,12 +272,12 @@
                         </div>
                         <div class="status__box__text">
                             <h2 class="color-yellow">
-                                @if(get_currency_placement() == 'after')
+                                @if (get_currency_placement() == 'after')
                                     {{ $total_new_withdraws }} {{ get_currency_symbol() }}
                                 @else
                                     {{ get_currency_symbol() }} {{ $total_new_withdraws }}
                                 @endif
-                                </h2>
+                            </h2>
                             <h3>{{ __('Total Request Withdraw') }}</h3>
                         </div>
                     </div>
@@ -285,11 +288,13 @@
                             <img src="{{ asset('admin') }}/images/admin-dashboard-icons/save-money.png" alt="icon">
                         </div>
                         <div class="status__box__text">
-                            <h2 class="color-green"> @if(get_currency_placement() == 'after')
+                            <h2 class="color-green">
+                                @if (get_currency_placement() == 'after')
                                     {{ $total_complete_withdraws }} {{ get_currency_symbol() }}
                                 @else
                                     {{ get_currency_symbol() }} {{ $total_complete_withdraws }}
-                                @endif</h2>
+                                @endif
+                            </h2>
                             <h3>{{ __('Total Complete Withdraw') }}</h3>
                         </div>
                     </div>
@@ -310,12 +315,14 @@
                                 <div class="revenue__chart-v2__list">
                                     <nav>
                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                            <button class="nav-link" id="nav-two-tab" data-bs-toggle="tab" data-bs-target="#nav-two" type="button" role="tab"
-                                                    aria-controls="nav-two" aria-selected="false">
+                                            <button class="nav-link" id="nav-two-tab" data-bs-toggle="tab"
+                                                data-bs-target="#nav-two" type="button" role="tab"
+                                                aria-controls="nav-two" aria-selected="false">
                                                 {{ __('Month') }}
                                             </button>
-                                            <button class="nav-link active" id="nav-three-tab" data-bs-toggle="tab" data-bs-target="#nav-three" type="button" role="tab"
-                                                    aria-controls="nav-three" aria-selected="false">
+                                            <button class="nav-link active" id="nav-three-tab" data-bs-toggle="tab"
+                                                data-bs-target="#nav-three" type="button" role="tab"
+                                                aria-controls="nav-three" aria-selected="false">
                                                 {{ __('Year') }}
                                             </button>
                                         </div>
@@ -332,7 +339,8 @@
                             <div class="tab-pane fade" id="nav-two" role="tabpanel" aria-labelledby="nav-two-tab">
                                 <div id="chartMonth"></div>
                             </div>
-                            <div class="tab-pane fade show active" id="nav-three" role="tabpanel" aria-labelledby="nav-three-tab">
+                            <div class="tab-pane fade show active" id="nav-three" role="tabpanel"
+                                aria-labelledby="nav-three-tab">
                                 <div id="chartYear"></div>
                             </div>
                         </div>
@@ -344,7 +352,7 @@
                             <h2>{{ __('Top Seller') }}</h2>
                         </div>
                         <div class="sales-location__map">
-                            <div id="topSellerChart" ></div>
+                            <div id="topSellerChart"></div>
                         </div>
                     </div>
                 </div>
@@ -354,27 +362,30 @@
                     <div class="top-products__area bg-style">
                         <div class="d-flex align-items-center justify-content-between mb-2">
                             <h2>{{ __('Top Courses') }}</h2>
-                            <a href="{{ route('admin.course.index') }}"><button class="btn bg-primary">{{ __('View All') }}</button></a>
+                            <a href="{{ route('admin.course.index') }}"><button
+                                    class="btn bg-primary">{{ __('View All') }}</button></a>
                         </div>
                         <div class="top-products__table">
                             <table class="table-style">
                                 <thead>
-                                <tr>
-                                    <th>{{ __('Course') }}</th>
-                                    <th>{{ __('Instructor Name') }}</th>
-                                    <th>{{ __('Price') }}</th>
-                                    <th>{{ __('Total') }}</th>
-                                </tr>
+                                    <tr>
+                                        <th>{{ __('Course') }}</th>
+                                        <th>{{ __('Instructor Name') }}</th>
+                                        <th>{{ __('Price') }}</th>
+                                        <th>{{ __('Total') }}</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($total_ten_courses as $course)
-                                    <tr>
-                                        <td><a href="{{ route('admin.course.view', $course->uuid) }}">{{ Str::limit($course->title, 90) }}</a></td>
-                                        <td>{{ @$course->instructor->name }}</td>
-                                        <td>{{ $course->price }}</td>
-                                        <td>{{ $course->totalOrder }}</td>
-                                    </tr>
-                                @endforeach
+                                    @foreach ($total_ten_courses as $course)
+                                        <tr>
+                                            <td><a
+                                                    href="{{ route('admin.course.view', $course->uuid) }}">{{ Str::limit($course->title, 90) }}</a>
+                                            </td>
+                                            <td>{{ @$course->instructor->name }}</td>
+                                            <td>{{ $course->price }}</td>
+                                            <td>{{ $course->totalOrder }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -384,67 +395,79 @@
                     <div class="top-products__area bg-style">
                         <div class="d-flex align-items-center justify-content-between mb-2">
                             <h2>{{ __('Requested Withdrawal') }}</h2>
-                            <a href="{{ route('payout.new-withdraw') }}"><button class="btn bg-primary">{{ __('View All') }}</button></a>
+                            <a href="{{ route('payout.new-withdraw') }}"><button
+                                    class="btn bg-primary">{{ __('View All') }}</button></a>
                         </div>
                         <div class="top-products__table">
                             <table class="table-style">
                                 <thead>
-                                <tr>
-                                    <th>{{__('Instructor')}}</th>
-                                    <th>{{__('Payment Method')}}</th>
-                                    <th>{{__('Request Date')}}</th>
-                                    <th>{{__('Amount')}}</th>
-                                </tr>
+                                    <tr>
+                                        <th>{{ __('Instructor') }}</th>
+                                        <th>{{ __('Payment Method') }}</th>
+                                        <th>{{ __('Request Date') }}</th>
+                                        <th>{{ __('Amount') }}</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                @forelse($withdraws as $withdraw)
-                                    <tr>
-                                        <td>
-                                            <div class="finance-table-inner-item my-2">
-                                                <span class="fw-bold mr-1">{{__('Name')}}</span>: {{$withdraw->user->student->name ?? $withdraw->user->instructor->name}}
-                                            </div>
-                                            <div class="finance-table-inner-item my-2">
-                                                <span class="fw-bold mr-1">{{__('Phone')}}</span>: {{$withdraw->user->student->phone_number ?? $withdraw->user->instructor->phone_number}}
-                                            </div>
-                                        </td>
-                                        <td>@if($withdraw->payment_method == 'paypal')
+                                    @forelse($withdraws as $withdraw)
+                                        <tr>
+                                            <td>
                                                 <div class="finance-table-inner-item my-2">
-                                                    <span class="fw-bold mr-1">{{__('Payment Method')}}</span>: PayPal
+                                                    <span class="fw-bold mr-1">{{ __('Name') }}</span>:
+                                                    {{ $withdraw->user->student->name ?? $withdraw->user->instructor->name }}
                                                 </div>
                                                 <div class="finance-table-inner-item my-2">
-                                                    <span class="fw-bold mr-1">{{__('Email')}}</span>: {{$withdraw->user->paypal ? $withdraw->user->paypal->email : '' }}
+                                                    <span class="fw-bold mr-1">{{ __('Phone') }}</span>:
+                                                    {{ $withdraw->user->student->phone_number ?? $withdraw->user->instructor->phone_number }}
                                                 </div>
-                                            @endif
-
-                                            @if($withdraw->payment_method == 'card')
-                                                <div class="finance-table-inner-item my-2">
-                                                    <span class="fw-bold mr-1">{{__('Payment Method')}}</span>: Card
-                                                </div>
-                                                @if($withdraw->user->card)
+                                            </td>
+                                            <td>
+                                                @if ($withdraw->payment_method == 'paypal')
                                                     <div class="finance-table-inner-item my-2">
-                                                        <span class="fw-bold mr-1">{{__('Card Number')}}</span>: {{$withdraw->user->card->card_number }}
+                                                        <span class="fw-bold mr-1">{{ __('Payment Method') }}</span>:
+                                                        PayPal
                                                     </div>
                                                     <div class="finance-table-inner-item my-2">
-                                                        <span class="fw-bold mr-1">{{__('Car Holder')}}</span>: {{$withdraw->user->card->card_holder_name }}
-                                                    </div>
-                                                    <div class="finance-table-inner-item my-2">
-                                                        <span class="fw-bold mr-1">{{__('Date')}}</span>: {{$withdraw->user->card->month }}/{{$withdraw->user->card->year }}
+                                                        <span class="fw-bold mr-1">{{ __('Email') }}</span>:
+                                                        {{ $withdraw->user->paypal ? $withdraw->user->paypal->email : '' }}
                                                     </div>
                                                 @endif
-                                            @endif
-                                        </td>
-                                        <td>{{$withdraw->created_at->format('d M Y')}}</td>
-                                        <td> @if(get_currency_placement() == 'after')
-                                                {{$withdraw->amount}} {{ get_currency_symbol() }}
-                                            @else
-                                                {{ get_currency_symbol() }} {{$withdraw->amount}}
-                                            @endif </td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="2">{{ __('No Requested Found') }}</td>
-                                    </tr>
-                                @endforelse
+
+                                                @if ($withdraw->payment_method == 'card')
+                                                    <div class="finance-table-inner-item my-2">
+                                                        <span class="fw-bold mr-1">{{ __('Payment Method') }}</span>:
+                                                        Card
+                                                    </div>
+                                                    @if ($withdraw->user->card)
+                                                        <div class="finance-table-inner-item my-2">
+                                                            <span class="fw-bold mr-1">{{ __('Card Number') }}</span>:
+                                                            {{ $withdraw->user->card->card_number }}
+                                                        </div>
+                                                        <div class="finance-table-inner-item my-2">
+                                                            <span class="fw-bold mr-1">{{ __('Car Holder') }}</span>:
+                                                            {{ $withdraw->user->card->card_holder_name }}
+                                                        </div>
+                                                        <div class="finance-table-inner-item my-2">
+                                                            <span class="fw-bold mr-1">{{ __('Date') }}</span>:
+                                                            {{ $withdraw->user->card->month }}/{{ $withdraw->user->card->year }}
+                                                        </div>
+                                                    @endif
+                                                @endif
+                                            </td>
+                                            <td>{{ $withdraw->created_at->format('d M Y') }}</td>
+                                            <td>
+                                                @if (get_currency_placement() == 'after')
+                                                    {{ $withdraw->amount }} {{ get_currency_symbol() }}
+                                                @else
+                                                    {{ get_currency_symbol() }} {{ $withdraw->amount }}
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="2">{{ __('No Requested Found') }}</td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
@@ -457,9 +480,7 @@
 @endsection
 
 @push('script')
-
     <script>
-
         'use strict'
 
         // Month
@@ -537,13 +558,11 @@
                         position: 'bottom'
                     }
                 }
-            },
-            ],
+            }, ],
             labels: @json(@$allName)
         };
 
         var chart = new ApexCharts(document.querySelector("#topSellerChart"), options);
         chart.render();
-
     </script>
 @endpush

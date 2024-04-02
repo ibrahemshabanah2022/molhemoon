@@ -100,7 +100,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link"
                                             href="{{ route('student.become-an-instructor') }}">{{ __('Become an
-                                                                                                                                                                                                                                                            Instructor') }}</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                            Instructor') }}</a>
                                     </li>
                                 @endif
                             @elseif(@$authUser->role == USER_ROLE_INSTRUCTOR || @$authUser->role == USER_ROLE_ORGANIZATION)
@@ -150,9 +150,17 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('blogs') }}">{{ __('Blog') }}</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page"
-                                    href="{{ route('contact') }}">{{ __('Internships') }}</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown"
+                                    data-bs-toggle="dropdown">{{ __('Internships') }}</a>
+                                <ul class="dropdown-menu {{ $selectedLanguage->rtl == 1 ? 'dropdown-menu-end' : '' }}">
+                                    <li><a href="{{ route('molhemoon.internships') }}"
+                                            class="dropdown-item">{{ __('Molhemoon Internships') }}</a>
+                                    </li>
+                                    <li><a href="{{ route('othercompany.internships') }}"
+                                            class="dropdown-item">{{ __('Othercompany Internships') }}</a>
+                                    </li>
+                                </ul>
                             </li>
 
                         @endif
@@ -471,7 +479,7 @@
                                                             href="{{ route('affiliate.become-an-affiliate') }}"><span
                                                                 class="iconify"
                                                                 data-icon="tabler:affiliate"></span>{{ __('Become an
-                                                                                                                                                                                                                                                                                                                                                                            Affiliator') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Affiliator') }}
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -525,7 +533,7 @@
                                             <li><a class="dropdown-item" href="{{ route('support-ticket-faq') }}"><span
                                                         class="iconify"
                                                         data-icon="bx:bx-help-circle"></span>{{ __('Help
-                                                                                                                                                                                                                                                                                                                                    Support') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Support') }}
                                                 </a></li>
                                             <li><a class="dropdown-item" href="{{ route('logout') }}"><span
                                                         class="iconify"
@@ -539,7 +547,7 @@
                                 <li class="nav-item  menu-sign-in-btn">
                                     <a href="{{ route('login') }}" class="nav-link theme-button1"
                                         aria-current="page">{{ __('Sign
-                                                                                                                                                                                                                                        In') }}</a>
+                                                                                                                                                                                                                                                                                                                                                                                                        In') }}</a>
                                 </li>
 
                                 @if (Route::has('register'))

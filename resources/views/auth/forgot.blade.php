@@ -8,12 +8,15 @@
                 <div class="col-md-5">
                     <div class="sign-up-left-content">
                         <div class="sign-up-top-logo">
-                            <a href="{{ route('main.index') }}"><img src="{{getImageFile(get_option('app_logo'))}}" alt="logo"></a>
+                            <a href="{{ route('main.index') }}"><img
+                                    src="{{ asset('frontend/assets/img/preloader-removebg-preview.png') }}" alt="Logo"
+                                    style="width: 100px; height: auto;"></a>
                         </div>
                         <p>{{ __(get_option('sign_up_left_text')) }}</p>
-                        @if(get_option('sign_up_left_image'))
+                        @if (get_option('sign_up_left_image'))
                             <div class="sign-up-bottom-img">
-                                <img src="{{getImageFile(get_option('sign_up_left_image'))}}" alt="hero" class="img-fluid">
+                                <img src="{{ getImageFile(get_option('sign_up_left_image')) }}" alt="hero"
+                                    class="img-fluid">
                             </div>
                         @endif
                     </div>
@@ -30,17 +33,22 @@
 
                             <div class="row mb-30">
                                 <div class="col-md-12">
-                                    <label class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Email') }}</label>
-                                    <input type="email" name="email" class="form-control" placeholder="{{ __('Type your email') }}">
+                                    <label
+                                        class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Email') }}</label>
+                                    <input type="email" name="email" class="form-control"
+                                        placeholder="{{ __('Type your email') }}">
                                 </div>
                             </div>
                             <div class="row mb-30">
                                 <div class="col-md-12">
-                                    <button type="submit" class="theme-btn theme-button1 theme-button3 font-15 fw-bold w-100">{{ __(get_option('forgot_btn_name')) }}</button>
+                                    <button type="submit"
+                                        class="theme-btn theme-button1 theme-button3 font-15 fw-bold w-100">{{ __(get_option('forgot_btn_name')) }}</button>
                                 </div>
                             </div>
                             <div class="row mb-30">
-                                <div class="col-md-12"><a href="{{ route('login') }}" class="color-hover text-decoration-underline font-medium">{{ __('Back to Login?') }}</a></div>
+                                <div class="col-md-12"><a href="{{ route('login') }}"
+                                        class="color-hover text-decoration-underline font-medium">{{ __('Back to Login?') }}</a>
+                                </div>
                             </div>
                         </form>
                     </div>

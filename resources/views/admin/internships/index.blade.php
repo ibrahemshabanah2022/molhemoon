@@ -36,13 +36,12 @@
                             <table id="customers-table" class="row-border data-table-filter table-style">
                                 <thead>
                                     <tr>
-                                        <th>{{ __('SL') }}</th>
-                                        <th>{{ __('Coupon Code Name') }}</th>
-                                        <th>{{ __('Duration') }}</th>
-                                        <th>{{ __('Details') }}</th>
-                                        <th>{{ __('Creator') }}</th>
-                                        <th>{{ __('Status') }}</th>
-                                        <th>{{ __('Action') }}</th>
+                                        <th>{{ __('Title') }}</th>
+                                        <th>{{ __('Experience Needed') }}</th>
+                                        <th>{{ __('Career Level') }}</th>
+                                        <th>{{ __('Education Level') }}</th>
+                                        <th>{{ __('Salary') }}</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>

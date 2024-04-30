@@ -444,7 +444,7 @@
                                             class="theme-btn theme-button3 show-last-phase-back-btn">{{ __('Back') }}</a>
                                         <button type="submit"
                                             class="theme-btn default-hover-btn theme-button1">{{ __('Save
-                                                                                                                                and continue') }}</button>
+                                                                                                                                                                            and continue') }}</button>
 
                                     </div>
                                 </form>

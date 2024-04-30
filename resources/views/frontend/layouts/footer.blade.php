@@ -5,7 +5,9 @@
             <div class="row footer-top-part section-p-t-b-90">
                 <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                     <div class="footer-widget footer-about">
-                        <img src="{{ asset(get_option('app_logo')) }}" alt="Logo">
+                        <img src="{{ asset('frontend/assets/img/preloader-removebg-preview.png') }}" alt="Logo"
+                            style="width: 100px; height: auto;">
+                        {{-- <img src="{{ asset(get_option('app_logo')) }}" alt="Logo"> --}}
                         <p>{{ __(get_option('footer_quote')) }}</p>
                         <div class="footer-social mt-30">
                             <ul class="d-flex align-items-center">

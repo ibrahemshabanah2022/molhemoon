@@ -425,16 +425,17 @@
                         </div>
                     </div>
                     <div class="row top-categories-content-wrap">
-                        @foreach (@$firstFourCategories as $firstFourCategory)
+                        @foreach (@$firstThreeCategories as $firstFourCategory)
                             <!-- Single Feature Item start-->
-                            <div class="col-md-6 col-lg-6 col-xl-3">
+                            <div class="col-md-8 col-lg-8 col-xl-4 ">
                                 <div class="single-feature-item top-cat-item align-items-center">
                                     <div class="flex-shrink-0 feature-img-wrap">
                                         <img src="{{ getImageFile($firstFourCategory->image ?? 'frontend/assets/img/top-categories-icon/1.png') }}"
                                             alt="categories">
                                     </div>
                                     <div class="flex-grow-1 mt-3 feature-content">
-                                        <h6>{{ Str::limit($firstFourCategory->name, 20) }}</h6>
+                                        <h5>
+                                            {{ Str::limit($firstFourCategory->name, 20) }}</h5>
                                         <p>{{ @$firstFourCategory->courses->count() }} {{ __('Courses') }}</p>
                                     </div>
                                 </div>

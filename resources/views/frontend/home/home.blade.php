@@ -615,8 +615,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-6 col-lg-7 col-xl-8">
                         <div class="video-area-left position-relative d-flex align-items-center justify-content-center">
-                            <img src="{{ getImageFile(get_option('become_instructor_video_preview_image')) }}"
-                                alt="video" class="img-fluid">
+                            <img src="{{ asset('frontend/assets/img/3784896.jpg') }}" alt="video" class="img-fluid">
                             <button type="button" class="play-btn position-absolute" data-bs-toggle="modal"
                                 data-bs-target="#newVideoPlayerModal">
                                 <img src="{{ asset('frontend/assets/img/icons-svg/play.svg') }}" alt="play">
@@ -631,7 +630,7 @@
                             </div>
 
                             <div class="video-floating-img-wrap pe-2 position-relative">
-                                <p>{{ Str::limit(get_option('become_instructor_video_subtitle'), 450) }}</p>
+                                {{-- <p>{{ Str::limit(get_option('become_instructor_video_subtitle'), 450) }}</p> --}}
                                 <img src="{{ getImageFile(get_option('become_instructor_video_logo')) }}" alt="video"
                                     class="position-absolute">
                             </div>
@@ -945,9 +944,10 @@
                     <div class="video-player-area">
                         <!-- HTML 5 Video -->
                         <video id="player" playsinline controls
-                            data-poster="{{ getImageFile(get_option('become_instructor_video_preview_image')) }}"
-                            controlsList="nodownload">
-                            <source src="{{ getVideoFile(get_option('become_instructor_video')) }}" type="video/mp4">
+                            data-poster="{{ asset('frontend/assets/img/2.png') }}" controlsList="nodownload">
+                            <source
+                                src="{{ asset('frontend/assets/videos/Are you passionate about sharing your knowledge.mp4') }}"
+                                type="video/mp4">
                         </video>
                     </div>
                 </div>

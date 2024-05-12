@@ -37,7 +37,7 @@
         <meta name="twitter:image" content="{{ $defaultMeta['og_image'] }}">
     @endif
 
-    <title>{{ get_option('app_name') }} - {{ __(@$pageTitle) }}</title>
+    <title>Molhemoon - {{ __(@$pageTitle) }}</title>
 
     <!--=======================================
       All Css Style link

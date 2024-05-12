@@ -29,7 +29,7 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
-    'STORAGE_DRIVER' => env('STORAGE_DRIVER','public'),
+    'STORAGE_DRIVER' => env('STORAGE_DRIVER', 'public'),
 
     /*
     |--------------------------------------------------------------------------

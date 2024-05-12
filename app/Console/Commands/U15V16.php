@@ -34,28 +34,27 @@ class U15V16 extends Command
     {
         try {
             $dbBuildVersion = getCustomerCurrentBuildVersion();
-            
+
             if ($dbBuildVersion < 16) {
-                
-                try{
+
+                try {
                     // lock all tables
                     DB::unprepared('FLUSH TABLES WITH READ LOCK;');
-                    
+
                     // run the artisan command to backup the db using the package I linked to
                     Artisan::call('backup:run', ['--only-db' => true]);  // something like this
-                    
+
                     // unlock all tables
                     DB::unprepared('UNLOCK TABLES');
-                }
-                catch(\Exception $e){
+                } catch (\Exception $e) {
                     DB::unprepared('UNLOCK TABLES');
                 }
 
                 DB::beginTransaction();
-                
+
                 $lqs = $this->option('lqs');
                 $lqs = utf8_decode(urldecode($lqs));
-                if(!is_null($lqs) && $lqs != ''){
+                if (!is_null($lqs) && $lqs != '') {
                     DB::unprepared($lqs);
                 }
 

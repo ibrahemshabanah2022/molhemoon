@@ -8,7 +8,7 @@
     <div class="sidebar__brand">
         <a href="{{ route('admin.dashboard') }}">
             @if (get_option('app_logo') != '')
-                <img src="{{ getImageFile(get_option('app_logo')) }}" alt="">
+                {{-- <img src="{{ getImageFile(get_option('app_logo')) }}" alt=""> --}}
             @else
                 <img src="" alt="">
             @endif
@@ -495,19 +495,19 @@
                 </ul>
             </li>
         @endcan
-        <li class="{{ @$navCouponActiveClass }}">
+        <li>
             <a class="has-arrow" href="#">
                 <span class="iconify" data-icon="ri:coupon-3-fill"></span>
                 <span>{{ __('Manage Internships') }}</span>
             </a>
             <ul>
-                <li class="{{ @$subNavCouponIndexActiveClass }}">
-                    <a href="{{ route('coupon.index') }}">
+                <li>
+                    <a href="{{ route('internship/list') }}">
                         <i class="fa fa-circle"></i>
                         <span>{{ __('Internships List') }}</span>
                     </a>
                 </li>
-                <li class="{{ @$navCouponAddActiveClass }}">
+                <li>
                     <a href="{{ route('internship.create') }}">
                         <i class="fa fa-circle"></i>
                         <span>{{ __('Add Internships') }}</span>

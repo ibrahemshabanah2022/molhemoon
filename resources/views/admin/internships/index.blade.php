@@ -9,7 +9,7 @@
                     <div class="breadcrumb__content">
                         <div class="breadcrumb__content__left">
                             <div class="breadcrumb__title">
-                                <h2>{{ __('Coupon') }}</h2>
+                                {{-- <h2>{{ __('Coupon') }}</h2> --}}
                             </div>
                         </div>
                         <div class="breadcrumb__content__right">
@@ -28,89 +28,66 @@
                 <div class="col-md-12">
                     <div class="customers__area bg-style mb-30">
                         <div class="item-title d-flex justify-content-between">
-                            <h2>{{ __('Coupon List') }}</h2>
+                            <h2>{{ __('internship List') }}</h2>
                             <a href="{{ route('coupon.create') }}" class="btn btn-success btn-sm"> <i
                                     class="fa fa-plus"></i> {{ __('Add Coupon') }} </a>
                         </div>
                         <div class="customers__table">
-                            <table id="customers-table" class="row-border data-table-filter table-style">
-                                <thead>
-                                    <tr>
-                                        <th>{{ __('Title') }}</th>
-                                        <th>{{ __('Experience Needed') }}</th>
-                                        <th>{{ __('Career Level') }}</th>
-                                        <th>{{ __('Education Level') }}</th>
-                                        <th>{{ __('Salary') }}</th>
+                            <!DOCTYPE html>
+                            <html>
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($coupons as $coupon)
-                                        <tr class="removable-item">
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $coupon->coupon_code_name }}</td>
-                                            <td>
-                                                <div class="finance-table-inner-item my-2">
-                                                    <span class="fw-bold mr-1">{{ __('Start Date') }}:</span>
-                                                    {{ $coupon->start_date }}
-                                                </div>
+                            <head>
+                                <title>Internships</title>
+                            </head>
 
-                                                <div class="finance-table-inner-item my-2">
-                                                    <span
-                                                        class="fw-bold mr-1">{{ __('End Date') }}:</span>{{ $coupon->end_date }}
-                                                </div>
-                                            </td>
+                            <body>
 
-                                            <td>
-                                                <span class="fw-bold mr-1">{{ __('Coupon Type') }}:</span>
-                                                @if ($coupon->coupon_type == 1)
-                                                    {{ __('Global') }}
-                                                @elseif($coupon->coupon_type == 2)
-                                                    {{ __('Instructor') }}
-                                                @elseif($coupon->coupon_type == 3)
-                                                    {{ __('Course') }}
-                                                @endif
-                                                <br>
-                                                <span class="fw-bold mr-1">{{ __('Minimum Amount to Use') }}: </span>
-                                                @if (get_currency_placement() == 'after')
-                                                    {{ $coupon->minimum_amount }} {{ get_currency_symbol() }}
-                                                @else
-                                                    {{ get_currency_symbol() }} {{ $coupon->minimum_amount }}
-                                                @endif
+                                <h1>Internships</h1>
 
-                                                <br>
-                                                <span class="fw-bold mr-1">Percentage: </span>{{ $coupon->percentage }}%
-                                            </td>
-                                            <td>{{ @$coupon->creator->name }}</td>
-
-                                            <td>
-                                                @if ($coupon->status == 1)
-                                                    <span class="status bg-green">{{ __('Active') }}</span>
-                                                @else
-                                                    <span class="status bg-red">{{ __('Deactivated') }}</span>
-                                                @endif
-                                            </td>
-                                            <td>
-                                                <div class="action__buttons">
-                                                    <a href="{{ route('coupon.edit', [$coupon->uuid]) }}"
-                                                        class="btn-action" title="Edit">
-                                                        <img src="{{ asset('admin/images/icons/edit-2.svg') }}"
-                                                            alt="edit">
-                                                    </a>
-                                                    <a href="javascript:void(0);"
-                                                        data-url="{{ route('coupon.delete', [$coupon->uuid]) }}"
-                                                        class="btn-action delete" title="Delete">
-                                                        <img src="{{ asset('admin/images/icons/trash-2.svg') }}"
-                                                            alt="trash">
-                                                    </a>
-                                                </div>
-                                            </td>
+                                <table id="customers-table" class="row-border data-table-filter table-style">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __('Title') }}</th>
+                                            <th>{{ __('Experience Needed') }}</th>
+                                            <th>{{ __('Career Level') }}</th>
+                                            <th>{{ __('Education Level') }}</th>
+                                            <th>{{ __('Salary') }}</th>
+                                            <th>{{ __('description') }}</th>
+                                            <th>{{ __('requirements') }}</th>
+                                            <th>Actions</th>
                                         </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach ($internships as $internship)
+                                            <tr class="removable-item">
+                                                <td>{{ $internship->title }}</td>
+                                                <td>{{ $internship->experience_needed }}</td>
+                                                <td>{{ $internship->career_level }}</td>
+                                                <td>{{ $internship->education_level }}</td>
+                                                <td>{{ $internship->salary }}</td>
+                                                <td>{{ $internship->description }}</td>
+                                                <td>{{ $internship->requirements }}</td>
+
+                                                <td>
+                                                    <form action="{{ route('internships.destroy', $internship) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger btn-sm"
+                                                            onclick="return confirm('Are you sure you want to delete this internship?')">Delete</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+
+                            </body>
+
+                            </html>
                             <div class="mt-3">
-                                {{ $coupons->links() }}
+                                {{-- {{ $coupons->links() }} --}}
                             </div>
                         </div>
                     </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\MolhemoonInternship;
 use App\Models\OthercompaniesInternship;
 
+
 class InternshipController extends Controller
 {
     /**
@@ -31,6 +32,16 @@ class InternshipController extends Controller
 
         // Pass the fetched internships data to the view
         return view('frontend.internships.molhemoonInternship', [
+            'internships' => $internships
+        ]);
+    }
+
+    public function AdminIndexMolhemoonInternships()
+    {
+        $internships = MolhemoonInternship::all(); // Fetch all internships from the database
+
+        // Pass the fetched internships data to the view
+        return view('admin.internships.index', [
             'internships' => $internships
         ]);
     }
@@ -122,8 +133,10 @@ class InternshipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(MolhemoonInternship $internship)
     {
-        //
+        $internship->delete();
+
+        return redirect()->route('internship/list')->with('success', 'Internship deleted successfully.');
     }
 }

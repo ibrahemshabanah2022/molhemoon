@@ -65,55 +65,28 @@ class InternshipController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function edit(MolhemoonInternship $internship)
     {
-        // Validate incoming request data
-        $validatedData = $request->validate([
-            'title' => 'required|string',
-            'experience_needed' => 'required|string',
-            'career_level' => 'required|in:Entry Level,Mid Level,Senior Level,Executive',
-            'education_level' => 'required|in:High School,Bachelor Degree,Master Degree,Ph.D.,Not Specified',
-            'salary' => 'required|numeric',
-            'description' => 'required|string',
-            'requirements' => 'required|string',
+        return view('admin.internships.edit', compact('internship'));
+    }
+
+    public function update(Request $request, MolhemoonInternship $internship)
+    {
+        $request->validate([
+            'title' => 'required',
+            'experience_needed' => 'required',
+            'career_level' => 'required',
+            'education_level' => 'required',
+            'salary' => 'required',
+            'description' => 'required',
+            'requirements' => 'required',
         ]);
 
-        // Create a new Internship record
-        $internship = new MolhemoonInternship();
-        $internship->title = $validatedData['title'];
-        $internship->experience_needed = $validatedData['experience_needed'];
-        $internship->career_level = $validatedData['career_level'];
-        $internship->education_level = $validatedData['education_level'];
-        $internship->salary = $validatedData['salary'];
-        $internship->description = $validatedData['description'];
-        $internship->requirements = $validatedData['requirements'];
-        $internship->save();
+        $internship->update($request->all());
 
-        // Optionally, you can redirect to a success page or return a response
-        // return redirect()->route('internships.index')->with('success', 'Internship record created successfully');
+        return redirect()->route('internship/list')->with('success', 'Internship updated successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -122,10 +95,7 @@ class InternshipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+
 
     /**
      * Remove the specified resource from storage.

@@ -662,3 +662,6 @@ Route::group(['prefix' => 'affiliate', 'as' => 'affiliate.'], function () {
 /////////////////////
 Route::get('internship/list', [InternshipController::class, 'AdminIndexMolhemoonInternships'])->name('internship/list');
 Route::delete('/internships/{internship}', [InternshipController::class, 'destroy'])->name('internships.destroy');
+
+Route::get('/internships/{internship}/edit', [InternshipController::class, 'edit'])->name('internships.edit');
+Route::put('/internships/{internship}', [InternshipController::class, 'update'])->name('internships.update');

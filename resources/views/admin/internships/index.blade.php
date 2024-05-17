@@ -17,7 +17,7 @@
                                 <ul class="breadcrumb">
                                     <li class="breadcrumb-item"><a
                                             href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">{{ __('Coupon') }}</li>
+                                    <li class="breadcrumb-item active" aria-current="page">{{ __('Internship List') }}</li>
                                 </ul>
                             </nav>
                         </div>
@@ -29,8 +29,7 @@
                     <div class="customers__area bg-style mb-30">
                         <div class="item-title d-flex justify-content-between">
                             <h2>{{ __('internship List') }}</h2>
-                            <a href="{{ route('coupon.create') }}" class="btn btn-success btn-sm"> <i
-                                    class="fa fa-plus"></i> {{ __('Add Coupon') }} </a>
+
                         </div>
                         <div class="customers__table">
                             <!DOCTYPE html>
@@ -42,7 +41,6 @@
 
                             <body>
 
-                                <h1>Internships</h1>
 
                                 <table id="customers-table" class="row-border data-table-filter table-style">
                                     <thead>
@@ -69,7 +67,7 @@
                                                 <td>{{ $internship->description }}</td>
                                                 <td>{{ $internship->requirements }}</td>
 
-                                                <td>
+                                                {{-- <td>
                                                     <form action="{{ route('internships.destroy', $internship) }}"
                                                         method="POST">
                                                         @csrf
@@ -77,7 +75,34 @@
                                                         <button type="submit" class="btn btn-danger btn-sm"
                                                             onclick="return confirm('Are you sure you want to delete this internship?')">Delete</button>
                                                     </form>
+                                                    <a href="{{ route('internships.edit', $internship) }}"
+                                                        class="btn btn-primary btn-sm">Update</a>
+
+                                                </td> --}}
+                                                <td>
+                                                    <div class="action__buttons">
+
+                                                        <a href="{{ route('internships.edit', $internship) }}"
+                                                            class="btn-action mr-30" title="Edit Details">
+                                                            <img src="{{ asset('admin/images/icons/edit-2.svg') }}"
+                                                                alt="edit">
+                                                        </a>
+                                                        <button class="ms-3">
+                                                            <span data-formid="delete_row_form_" class="deleteItem">
+                                                                <img src="{{ asset('admin/images/icons/trash-2.svg') }}"
+                                                                    alt="trash">
+                                                            </span>
+                                                        </button>
+
+                                                        <form action="{{ route('internships.destroy', $internship) }}"
+                                                            method="post" id="delete_row_form_">
+                                                            {{ method_field('DELETE') }}
+                                                            <input type="hidden" name="_token"
+                                                                value="{{ csrf_token() }}">
+                                                        </form>
+                                                    </div>
                                                 </td>
+
                                             </tr>
                                         @endforeach
                                     </tbody>

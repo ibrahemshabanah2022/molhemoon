@@ -42,7 +42,7 @@
                             <body>
 
 
-                                <table id="customers-table" class="row-border data-table-filter table-style">
+                                <table class="row-border data-table-filter table-style">
                                     <thead>
                                         <tr>
                                             <th>{{ __('Title') }}</th>
@@ -64,21 +64,16 @@
                                                 <td>{{ $internship->career_level }}</td>
                                                 <td>{{ $internship->education_level }}</td>
                                                 <td>{{ $internship->salary }}</td>
-                                                <td>{{ $internship->description }}</td>
-                                                <td>{{ $internship->requirements }}</td>
+                                                <!-- Assuming this is within a Blade template file -->
+                                                <td>
+                                                    <textarea name="description" id="description" rows="4" cols="50" style="border: none;" readonly>{{ $internship->description }}</textarea>
+                                                </td>
+                                                <td>
+                                                    <textarea name="requirements" id="requirements" rows="4" cols="50" style="border: none;" readonly>{{ $internship->requirements }}</textarea>
+                                                </td>
 
-                                                {{-- <td>
-                                                    <form action="{{ route('internships.destroy', $internship) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger btn-sm"
-                                                            onclick="return confirm('Are you sure you want to delete this internship?')">Delete</button>
-                                                    </form>
-                                                    <a href="{{ route('internships.edit', $internship) }}"
-                                                        class="btn btn-primary btn-sm">Update</a>
 
-                                                </td> --}}
+
                                                 <td>
                                                     <div class="action__buttons">
 

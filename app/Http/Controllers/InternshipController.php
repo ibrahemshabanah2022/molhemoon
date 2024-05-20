@@ -109,4 +109,35 @@ class InternshipController extends Controller
 
         return redirect()->route('internship/list')->with('success', 'Internship deleted successfully.');
     }
+
+    public function store(Request $request)
+    {
+        // Validate incoming request data
+        $validatedData = $request->validate([
+            'title' => 'required|string',
+            'experience_needed' => 'required|string',
+            'career_level' => 'required|in:Entry Level,Mid Level,Senior Level,Executive',
+            'education_level' => 'required|in:High School,Bachelor Degree,Master Degree,Ph.D.,Not Specified',
+            'salary' => 'required|numeric',
+            'description' => 'required|string',
+            'requirements' => 'required|string',
+        ]);
+
+        // Create a new Internship record
+        $internship = new MolhemoonInternship();
+        $internship->title = $validatedData['title'];
+        $internship->experience_needed = $validatedData['experience_needed'];
+        $internship->career_level = $validatedData['career_level'];
+        $internship->education_level = $validatedData['education_level'];
+        $internship->salary = $validatedData['salary'];
+        $internship->description = $validatedData['description'];
+        $internship->requirements = $validatedData['requirements'];
+        $internship->save();
+        return redirect()->route('internship/list')->with('success', 'Internship deleted successfully.');
+    }
+    public function show($id)
+    {
+        $internship = MolhemoonInternship::findOrFail($id);
+        return view('frontend.internships.molhemoonSingleIntern', compact('internship'));
+    }
 }

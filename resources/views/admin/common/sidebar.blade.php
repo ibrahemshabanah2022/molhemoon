@@ -1146,18 +1146,18 @@
             </li>
             @endif
             @can('manage_version_update')
-                <li class="{{ @$subNavVersionUpdateActiveClass }}">
+                {{-- <li class="{{ @$subNavVersionUpdateActiveClass }}">
                     <a href="{{ route('settings.file-version-update') }}">
                         <i class="fa fa-circle"></i>
                         <span>{{ __('Version Update') }}</span>
                     </a>
-                </li>
+                </li> --}}
                 @endif
 
                 <li class="mb-5 text-center">
                     <a href="#">
                         <span>
-                            <h3>{{ __('Software Version') }} {{ get_option('current_version', 2.4) }}</h3>
+                            {{-- <h3>{{ __('Software Version') }} {{ get_option('current_version', 2.4) }}</h3> --}}
                         </span>
                     </a>
                 </li>

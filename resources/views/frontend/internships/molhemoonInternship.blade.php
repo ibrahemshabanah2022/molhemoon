@@ -165,13 +165,16 @@
                         <!-- all courses grid Start-->
                         @foreach ($internships as $internship)
                             <li class="card p-3">
-                                <h2>{{ $internship->title }}</h2>
+                                <a href="{{ route('MolhemoonSingleIntern', ['id' => $internship->id]) }}">
+                                    <h5 style="color: rgb(74, 74, 255);">{{ $internship->title }}</h5>
+                                </a>
+
                                 <p><strong>Experience Needed:</strong> {{ $internship->experience_needed }}</p>
                                 <p><strong>Career Level:</strong> {{ $internship->career_level }}</p>
                                 <p><strong>Education Level:</strong> {{ $internship->education_level }}</p>
-                                <p><strong>Salary:</strong> {{ $internship->salary }}</p>
+                                {{-- <p><strong>Salary:</strong> {{ $internship->salary }}</p>
                                 <p><strong>Description:</strong> {{ $internship->description }}</p>
-                                <p><strong>Requirements:</strong> {{ $internship->requirements }}</p>
+                                <p><strong>Requirements:</strong> {{ $internship->requirements }}</p> --}}
                             </li>
                             <br />
                         @endforeach

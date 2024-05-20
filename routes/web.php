@@ -76,4 +76,6 @@ Route::get('/molhemoon-internships', [InternshipController::class, 'indexMolhemo
 Route::get('/othercompany-internships', [InternshipController::class, 'indexOthercompanyInternships'])->name('othercompany.internships');
 Route::get('/internship/create', [InternshipController::class, 'createInternshipForAdmin'])->name('internship.create');
 Route::post('internships', [InternshipController::class, 'store'])->name('internships.store');
+Route::get('/internship/{id}', [InternshipController::class, 'show'])->name('MolhemoonSingleIntern');
+
 ///////////

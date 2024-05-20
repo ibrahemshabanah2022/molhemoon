@@ -7,7 +7,7 @@
                         {{-- <h2>{{__(get_option('app_copyright'))}}</h2> --}}
                     </div>
                     <div class="footer__copyright__right">
-                        <h2>{{ __(get_option('app_developed')) }}</h2>
+                        {{-- <h2>{{ __(get_option('app_developed')) }}</h2> --}}
                     </div>
                 </div>
             </div>

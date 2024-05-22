@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\MolhemoonInternship;
+use Illuminate\Support\Facades\Auth;
 use App\Models\OthercompaniesInternship;
 
 
@@ -139,5 +140,20 @@ class InternshipController extends Controller
     {
         $internship = MolhemoonInternship::findOrFail($id);
         return view('frontend.internships.molhemoonSingleIntern', compact('internship'));
+    }
+
+    public function apply(MolhemoonInternship $internship)
+    {
+        $user = Auth::user();
+
+        // Check if the user is authenticated
+        if ($user) {
+            // Attach the internship to the user
+            $user->molhemoonInternships()->attach($internship->id);
+
+            return redirect()->back()->with('success', 'You have successfully applied for the internship.');
+        }
+
+        return redirect()->route('login')->with('error', 'You must be logged in to apply for an internship.');
     }
 }

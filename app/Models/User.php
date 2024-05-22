@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use IvanoMatteo\LaravelDeviceTracking\Traits\UseDevices;
 use Laravel\Passport\HasApiTokens;
+use App\Models\MolhemoonInternship;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use IvanoMatteo\LaravelDeviceTracking\Traits\UseDevices;
 
 class User extends Authenticatable
 {
@@ -34,7 +35,7 @@ class User extends Authenticatable
         'og_image',
     ];
 
-    
+
     protected $appends = ['image_url'];
 
     /**
@@ -153,8 +154,7 @@ class User extends Authenticatable
 
     public function getImageUrlAttribute()
     {
-        if ($this->image)
-        {
+        if ($this->image) {
             return asset($this->image);
         } else {
             return asset('uploads/default/instructor-default.png');
@@ -183,8 +183,7 @@ class User extends Authenticatable
 
     public function getImagePathAttribute()
     {
-        if ($this->image)
-        {
+        if ($this->image) {
             return $this->image;
         } else {
             return 'uploads/default/instructor-default.png';
@@ -228,19 +227,19 @@ class User extends Authenticatable
 
     public function followings()
     {
-        return $this->belongsToMany(User::class,'user_follower','user_id','follower_id');
+        return $this->belongsToMany(User::class, 'user_follower', 'user_id', 'follower_id');
     }
 
     public function followers()
     {
-        return $this->belongsToMany(User::class,'user_follower','follower_id','user_id');
+        return $this->belongsToMany(User::class, 'user_follower', 'follower_id', 'user_id');
     }
-   
+
     public function badges()
     {
-        return $this->belongsToMany(RankingLevel::class, 'user_badges', 'user_id' , 'ranking_level_id');
+        return $this->belongsToMany(RankingLevel::class, 'user_badges', 'user_id', 'ranking_level_id');
     }
-   
+
     public function zoom_settings()
     {
         return $this->hasOne(ZoomSetting::class);
@@ -259,5 +258,10 @@ class User extends Authenticatable
     public static function accountID()
     {
         return auth()->user()->zoom_settings?->account_id;
+    }
+
+    public function molhemoonInternships()
+    {
+        return $this->belongsToMany(MolhemoonInternship::class, 'molhemoon_internship_user');
     }
 }

@@ -33,9 +33,67 @@
                             <div class="page-banner-content text-center">
                                 <h3 class="page-banner-heading text-white pb-15">{{ $internship->title }} Internship
                                 </h3>
-                                <div class="d-flex justify-content-center">
-                                    <a href="#" class="nav-link theme-button1">Apply Now</a>
+                                <button class="theme-btn theme-button1 theme-button3 mr-30" data-bs-toggle="modal"
+                                    data-bs-target="#becomeAnInstructor"> {{ __('Apply Now') }} <i
+                                        data-feather="arrow-right"></i></button>
+                                <!-- Become an Instructor Modal Start -->
+                                <div class="modal fade becomeAnInstructorModal" id="becomeAnInstructor" tabindex="-1"
+                                    aria-labelledby="becomeAnInstructorLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="becomeAnInstructorLabel">
+                                                    {{ __('Submit your application') }}</h6>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+
+                                            <form method="POST" action="{{ route('student.save-instructor-info') }}"
+                                                class="needs-validation" novalidate enctype="multipart/form-data">
+                                                @csrf
+                                                <div class="modal-body">
+
+
+
+                                                    <div class="row mb-30">
+                                                        <div class="col-md-12">
+                                                            <label
+                                                                class="label-text-title color-heading font-medium font-16 mb-2">CV</label>
+                                                            <div class="create-assignment-upload-files">
+                                                                <input type="file" name="cv_file"
+                                                                    accept="application/pdf" class="form-control" />
+                                                                <p
+                                                                    class="font-14 color-heading text-center mt-2 color-gray">
+                                                                    No file selected (PDF) <span class="d-block">Maximum
+                                                                        Image Upload Size is <span
+                                                                            class="color-heading">5mb</span></span> </p>
+                                                            </div>
+                                                            @if ($errors->has('cv_file'))
+                                                                <span class="text-danger"><i
+                                                                        class="fas fa-exclamation-triangle"></i>
+                                                                    {{ $errors->first('cv_file') }}</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+
+
+
+                                                </div>
+                                                <div class="modal-footer d-flex justify-content-center align-items-center">
+                                                    <button type="submit"
+                                                        class="theme-btn theme-button1 default-hover-btn">{{ __('Submit') }}</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
+                                <!-- Become an Instructor Modal End -->
+
+                                <form action="{{ route('internship.apply', $internship->id) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="nav-link theme-button1">Apply Now</button>
+                                </form>
+
                                 <!-- Breadcrumb Start-->
                                 {{-- <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb justify-content-center">

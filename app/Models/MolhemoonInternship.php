@@ -17,4 +17,9 @@ class MolhemoonInternship extends Model
         'description',
         'requirements',
     ];
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'molhemoon_internship_user');
+    }
 }

@@ -156,4 +156,68 @@ class InternshipController extends Controller
 
         return redirect()->route('login')->with('error', 'You must be logged in to apply for an internship.');
     }
+
+    // public function uploadCV(Request $request, MolhemoonInternship $internship)
+    // {
+    //     $user = Auth::user();
+
+    //     // Check if the user is authenticated
+    //     if ($user) {
+
+
+    //         // Validate the CV upload
+    //         $request->validate([
+    //             'cv' => 'required|mimes:pdf,doc,docx|max:2048',
+    //         ]);
+
+    //         if ($request->hasFile('cv')) {
+    //             $file = $request->file('cv');
+    //             $path = $file->store('cvs', 'public');
+
+    //             // Save the CV path to the database
+    //             $user->cv_path = $path;
+    //         }
+
+    //         // Attach the internship to the user
+    //         $user->molhemoonInternships()->attach($internship->id);
+    //         $user->save();
+
+    //         return redirect()->back()->with('success', 'You have successfully applied for the internship and uploaded your CV.');
+    //     }
+    //     return redirect()->route('login')->with('error', 'You must be logged in to apply for an internship.');
+    // }
+    public function uploadCV(Request $request, MolhemoonInternship $internship)
+    {
+        $user = Auth::user();
+
+        // Check if the user is authenticated
+        if ($user) {
+            // Validate the CV upload
+            $request->validate([
+                'cv' => 'required|mimes:pdf,doc,docx|max:2048',
+            ]);
+
+            if ($request->hasFile('cv')) {
+                $file = $request->file('cv');
+                $path = $file->store('cvs', 'public');
+
+                // Save the CV path to the database
+                $user->cv_path = $path;
+            }
+
+            // Attach the internship to the user
+            $user->molhemoonInternships()->attach($internship->id);
+            $user->save();
+
+            // Set success flash message
+            $request->session()->flash('success', 'You have successfully applied for the internship and uploaded your CV.');
+            return view('frontend.internships.success');
+
+            // return redirect()->back();
+        }
+
+        // Set error flash message
+        $request->session()->flash('error', 'You must be logged in to apply for an internship.');
+        return redirect()->route('login');
+    }
 }

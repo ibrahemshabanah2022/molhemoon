@@ -78,5 +78,7 @@ Route::get('/internship/create', [InternshipController::class, 'createInternship
 Route::post('internships', [InternshipController::class, 'store'])->name('internships.store');
 Route::get('/internship/{id}', [InternshipController::class, 'show'])->name('MolhemoonSingleIntern');
 Route::post('/apply/{internship}', [InternshipController::class, 'apply'])->name('internship.apply');
+Route::post('/upload-cv/{internship}', [InternshipController::class, 'uploadCV'])->name('upload.cv');
+
 
 ///////////

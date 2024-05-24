@@ -192,6 +192,13 @@ class InternshipController extends Controller
 
         // Check if the user is authenticated
         if ($user) {
+            // Check if the user has already attached to this internship
+            if ($user->molhemoonInternships()->where('molhemoon_internship_id', $internship->id)->exists()) {
+                // Set flash message for already applied internship
+                $request->session()->flash('info', 'You have already applied for this internship.');
+                return view('frontend.internships.already-applied');
+            }
+
             // Validate the CV upload
             $request->validate([
                 'cv' => 'required|mimes:pdf,doc,docx|max:2048',
@@ -212,8 +219,6 @@ class InternshipController extends Controller
             // Set success flash message
             $request->session()->flash('success', 'You have successfully applied for the internship and uploaded your CV.');
             return view('frontend.internships.success');
-
-            // return redirect()->back();
         }
 
         // Set error flash message

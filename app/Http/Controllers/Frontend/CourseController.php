@@ -29,42 +29,41 @@ class CourseController extends Controller
         $data['metaData'] = staticMeta(2);
         $data['categories'] = Category::with('subcategories')->active()->get();
 
-        if($request->ajax()){
+        if ($request->ajax()) {
             $lastPage = false;
             $data['courses'] = $this->filterCourseData($request);
             $data['topCourse'] = Enrollment::query()
-            ->whereMonth('created_at', now()->month)
-            ->select('course_id', DB::raw('count(*) as total'))
-            ->groupBy('course_id')
-            ->limit(10)
-            ->orderBy('total','desc')
-            ->get()
-            ->pluck('course_id')
-            ->toArray();
+                ->whereMonth('created_at', now()->month)
+                ->select('course_id', DB::raw('count(*) as total'))
+                ->groupBy('course_id')
+                ->limit(10)
+                ->orderBy('total', 'desc')
+                ->get()
+                ->pluck('course_id')
+                ->toArray();
             $data['courses'] = $data['courses']->paginate($this->coursePaginateValue);
 
-            if( $data['courses']->lastPage() == $request->page){
+            if ($data['courses']->lastPage() == $request->page) {
                 $lastPage = true;
             }
-    
+
             $data['lastPage'] = $lastPage;
             $data['html'] = View::make('frontend.course.render-course-list-only', $data)->render();
             $data['status'] = true;
             return response()->json($data);
-        }
-        else{
+        } else {
             $data['courses'] = Course::where('private_mode', '!=', 1)->with('course_instructors.user.instructor.instructor_courses')->active()->paginate($this->coursePaginateValue);
         }
 
         $data['topCourse'] = Enrollment::query()
-        ->whereMonth('created_at', now()->month)
-        ->select('course_id', DB::raw('count(*) as total'))
-        ->groupBy('course_id')
-        ->limit(10)
-        ->orderBy('total','desc')
-        ->get()
-        ->pluck('course_id')
-        ->toArray();
+            ->whereMonth('created_at', now()->month)
+            ->select('course_id', DB::raw('count(*) as total'))
+            ->groupBy('course_id')
+            ->limit(10)
+            ->orderBy('total', 'desc')
+            ->get()
+            ->pluck('course_id')
+            ->toArray();
         $data['total_courses'] = Course::where('private_mode', '!=', 1)->active()->count();
         $data['difficulty_levels'] = Difficulty_level::all();
         $data['highest_price'] = Course::where('private_mode', '!=', 1)->max('price');
@@ -97,15 +96,15 @@ class CourseController extends Controller
             $data['ref_link'] = null;
         }
 
-        if ($data['course']->status != STATUS_APPROVED && $data['course']->status != STATUS_UPCOMING_APPROVED){
+        if ($data['course']->status != STATUS_APPROVED && $data['course']->status != STATUS_UPCOMING_APPROVED) {
             $this->showToastrMessage('error', __('This course is not active'));
             return redirect()->back();
         }
 
         $authUser = auth()->user();
         $relation = ($authUser) ? getUserRoleRelation($authUser) : NULL;
-        
-        if($data['course']->private_mode == 1 && (is_null($authUser) || ($authUser->$relation->organization_id != $data['course']->organization_id && $authUser->id != $data['course']->user_id))){
+
+        if ($data['course']->private_mode == 1 && (is_null($authUser) || ($authUser->$relation->organization_id != $data['course']->organization_id && $authUser->id != $data['course']->user_id))) {
             abort(403);
         }
 
@@ -191,14 +190,14 @@ class CourseController extends Controller
         $data['category'] = Category::whereSlug($slug)->firstOrFail();
         $data['courses'] = Course::where('private_mode', '!=', 1)->whereCategoryId($data['category']->id)->active()->paginate($this->coursePaginateValue);
         $data['topCourse'] = Enrollment::query()
-                ->whereMonth('created_at', now()->month)
-                ->select('course_id', DB::raw('count(*) as total'))
-                ->groupBy('course_id')
-                ->limit(10)
-                ->orderBy('total','desc')
-                ->get()
-                ->pluck('course_id')
-                ->toArray();
+            ->whereMonth('created_at', now()->month)
+            ->select('course_id', DB::raw('count(*) as total'))
+            ->groupBy('course_id')
+            ->limit(10)
+            ->orderBy('total', 'desc')
+            ->get()
+            ->pluck('course_id')
+            ->toArray();
         $data['total_courses'] = Course::where('private_mode', '!=', 1)->whereCategoryId($data['category']->id)->active()->count();
         $data['difficulty_levels'] = Difficulty_level::all();
         $data['highest_price'] = Course::where('private_mode', '!=', 1)->max('price');
@@ -214,14 +213,14 @@ class CourseController extends Controller
         $data['subcategory'] = Subcategory::whereSlug($slug)->firstOrFail();
         $data['courses'] = Course::where('private_mode', '!=', 1)->whereSubcategoryId($data['subcategory']->id)->active()->paginate($this->coursePaginateValue);
         $data['topCourse'] = Enrollment::query()
-                ->whereMonth('created_at', now()->month)
-                ->select('course_id', DB::raw('count(*) as total'))
-                ->groupBy('course_id')
-                ->limit(10)
-                ->orderBy('total','desc')
-                ->get()
-                ->pluck('course_id')
-                ->toArray();
+            ->whereMonth('created_at', now()->month)
+            ->select('course_id', DB::raw('count(*) as total'))
+            ->groupBy('course_id')
+            ->limit(10)
+            ->orderBy('total', 'desc')
+            ->get()
+            ->pluck('course_id')
+            ->toArray();
         $data['total_courses'] = Course::where('private_mode', '!=', 1)->whereSubcategoryId($data['subcategory']->id)->active()->count();
         $data['difficulty_levels'] = Difficulty_level::all();
         $data['highest_price'] = Course::where('private_mode', '!=', 1)->max('price');
@@ -233,14 +232,14 @@ class CourseController extends Controller
     {
         $data['courses'] = $this->filterCourseData($request);
         $data['topCourse'] = Enrollment::query()
-        ->whereMonth('created_at', now()->month)
-        ->select('course_id', DB::raw('count(*) as total'))
-        ->groupBy('course_id')
-        ->limit(10)
-        ->orderBy('total','desc')
-        ->get()
-        ->pluck('course_id')
-        ->toArray();
+            ->whereMonth('created_at', now()->month)
+            ->select('course_id', DB::raw('count(*) as total'))
+            ->groupBy('course_id')
+            ->limit(10)
+            ->orderBy('total', 'desc')
+            ->get()
+            ->pluck('course_id')
+            ->toArray();
         $data['courses'] = $data['courses']->paginate($this->coursePaginateValue);
         return view('frontend.course.render-course-list')->with($data);
     }

@@ -29,7 +29,8 @@ class InternshipController extends Controller
 
     public function indexMolhemoonInternships()
     {
-        $internships = MolhemoonInternship::all(); // Fetch all internships from the database
+        $internships = MolhemoonInternship::paginate(10);
+
 
         // Pass the fetched internships data to the view
         return view('frontend.internships.molhemoonInternship', [

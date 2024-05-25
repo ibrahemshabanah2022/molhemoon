@@ -80,62 +80,47 @@
         <!-- Course Single Page Header End -->
 
         <!-- Courses Page Area Start -->
-        <section class="courses-page-area section-t-space">
+        <section class="contact-page-area section-t-space">
+            <div class="container">
+                <div class="row">
+                    <!-- Contact page left side start-->
+                    <div class="col-md-6 col-lg-5 bg-white contact-page-left-side">
 
-            <div class="row shop-content">
-                <!-- Courses Sidebar start-->
-                <div class="col-md-4 col-lg-3 col-xl-3  coursesLeftSidebar">
+                        <div class="contact-page-left-side-wrap">
 
-                    <div>
-                        <div>
-                            <!-- all courses grid Start-->
-                            <li class="card p-3">
-
-
-                                <p><strong>Experience Needed:</strong> {{ $internship->experience_needed }}</p>
-                                <p><strong>Career Level:</strong> {{ $internship->career_level }}</p>
-                                <p><strong>Education Level:</strong> {{ $internship->education_level }}</p>
-                                <p><strong>Salary:</strong> {{ $internship->salary }}</p>
-
-                            </li>
-                            <br />
-
-                            <!-- all courses grid End-->
+                            <p><strong>Experience Needed:</strong> {{ $internship->experience_needed }}</p><br>
+                            <p><strong>Career Level:</strong> {{ $internship->career_level }}</p><br>
+                            <p><strong>Education Level:</strong> {{ $internship->education_level }}</p><br>
+                            {{-- <p><strong>Salary:</strong> {{ $internship->salary }}</p> --}}
 
                         </div>
+
                     </div>
+                    <!-- Contact page left side End-->
 
-                </div>
+                    <!-- Contact page right side start-->
+                    <div class="col-md-6 col-lg-7 bg-white contact-page-right">
+                        <div class="contact-form-area">
 
-                <!-- Courses Sidebar End-->
-                <!-- Show all course area start-->
-                <div class="col-md-8 col-lg-9 col-xl-9 ">
-                    <div class="">
-                        <!-- all courses grid Start-->
-                        <li class="card p-3">
-                            <h6> Description:</h6> <br />
-                            <p> {{ $internship->description }}</p>
-                            <hr />
-                            <h6>Requirements:</h6> <br />
-                            <p>{{ $internship->requirements }}</p>
-                        </li>
-                        <br />
-                        {{-- <div id="loading" class="no-course-found text-center d-none">
-                            <div id="inner-status"><img src="{{ asset('frontend/assets/img/loader.svg') }}"
-                                    alt="img" /></div>
+                            <form id="contact-form">
+                                <li class="card p-3">
+                                    <h6> Description:</h6> <br />
+                                    <p> {{ $internship->description }}</p>
+                                    <hr />
+                                    <h6>Requirements:</h6> <br />
+                                    <p>{{ $internship->requirements }}</p>
+                                </li>
+                            </form>
                         </div>
-                        <div id="appendCourse">
-                            @include('frontend.course.render-course-list')
-                        </div> --}}
-                        <!-- all courses grid End-->
-
                     </div>
+                    <!-- Contact page right side End-->
                 </div>
-                <!-- Show all course area End-->
+
+
             </div>
-    </div>
-    </section>
-    <!-- Courses Page Area End -->
+        </section>
+
+        <!-- Courses Page Area End -->
     </div>
 
     <!-- some important hidden id for filter.js -->

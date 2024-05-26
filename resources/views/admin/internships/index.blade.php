@@ -102,7 +102,11 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                <!-- Render the pagination links -->
+                                <div class="flex flex-wrap items-center justify-center gap-x-1 text-xs font-semibold ">
 
+                                    {{ $internships->links() }}
+                                </div>
                             </body>
 
                             </html>
@@ -123,7 +127,7 @@
     <link rel="stylesheet" href="{{ asset('admin/css/jquery.dataTables.min.css') }}">
 @endpush
 
-@push('script')
+{{-- @push('script')
     <script src="{{ asset('admin/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('admin/js/custom/data-table-page.js') }}"></script>
-@endpush
+@endpush --}}

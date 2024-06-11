@@ -665,3 +665,6 @@ Route::delete('/internships/{internship}', [InternshipController::class, 'destro
 
 Route::get('/internships/{internship}/edit', [InternshipController::class, 'edit'])->name('internships.edit');
 Route::put('/internships/{internship}', [InternshipController::class, 'update'])->name('internships.update');
+Route::get('/internships_enrolments', [InternshipController::class, 'internships_enrolments'])->name('internships_enrolments');
+Route::get('/admin/internships/{id}/users', [InternshipController::class, 'showUsers'])->name('admin.internships.users');
+Route::get('/cv/{user}', [InternshipController::class, 'showCV'])->name('cv.show');

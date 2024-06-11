@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\MolhemoonInternship;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Models\OthercompaniesInternship;
 
 
@@ -40,8 +42,8 @@ class InternshipController extends Controller
 
     public function AdminIndexMolhemoonInternships()
     {
-        $internships = MolhemoonInternship::paginate(10); // Fetch all internships from the database
-
+        // Fetch internships with enrolled users and paginate
+        $internships = MolhemoonInternship::with('users')->paginate(10);
         // Pass the fetched internships data to the view
         return view('admin.internships.index', [
             'internships' => $internships
@@ -202,7 +204,7 @@ class InternshipController extends Controller
 
             // Validate the CV upload
             $request->validate([
-                'cv' => 'required|mimes:pdf,doc,docx|max:2048',
+                'cv' => 'required|mimes:pdf,doc,docx|max:4000',
             ]);
 
             if ($request->hasFile('cv')) {
@@ -225,5 +227,39 @@ class InternshipController extends Controller
         // Set error flash message
         $request->session()->flash('error', 'You must be logged in to apply for an internship.');
         return redirect()->route('login');
+    }
+
+    public function internships_enrolments()
+    {
+        // Fetch only users who have at least one associated internship
+        $users = User::has('molhemoonInternships')->with('molhemoonInternships')->get();
+        return view('frontend.internships.internships_enrolments', compact('users'));
+    }
+
+    public function showUsers($id)
+    {
+        // Fetch the internship along with the users who applied for it, with pagination
+        $internship = MolhemoonInternship::findOrFail($id);
+        $users = $internship->users()->paginate(10); // Adjust the number 10 to the desired items per page
+
+        // Pass the internship and its paginated users to the view
+        return view('frontend.internships.internships_enrolments', [
+            'internship' => $internship,
+            'users' => $users
+        ]);
+    }
+
+
+
+    public function showCV(User $user)
+    {
+
+
+        // Get the CV path
+        $cvPath = $user->cv_path;
+
+        if ($cvPath && Storage::disk('public')->exists($cvPath)) {
+            return response()->file(storage_path('app/public/' . $cvPath));
+        }
     }
 }

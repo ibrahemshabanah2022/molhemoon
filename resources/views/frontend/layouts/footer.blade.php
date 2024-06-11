@@ -55,21 +55,29 @@
                                     <li><a href="{{ $footerLeftMenu->url }}">{{ __($footerLeftMenu->name) }}</a></li>
                                 @endforeach --}}
                                 <li><a href="{{ route('about') }}">{{ __('About') }}</a></li>
-                                <li><a href="{{ route('faq') }}">{{ __('FAQ') }}</a></li>
-                                <li><a href="{{ route('blogs') }}">{{ __('Blogs') }}</a></li>
+                                <li><a href="{{ route('contact') }}">{{ __('Contact') }}</a></li>
+                                @if (!get_option('private_mode') || !auth()->guest())
+                                    <li><a href="{{ route('courses') }}">{{ __('Courses') }}</a></li>
+                                @endif
+                                <li><a href="{{ route('instructor') }}">{{ __('Instructor') }}</a></li>
+                                <li><a
+                                        href="{{ route('student.become-an-instructor') }}">{{ __('Become Instructor') }}</a>
+                                </li>
+                                {{-- <li><a href="{{ route('faq') }}">{{ __('FAQ') }}</a></li> --}}
+                                {{-- <li><a href="{{ route('blogs') }}">{{ __('Blogs') }}</a></li> --}}
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-2">
+                {{-- <div class="col-12 col-sm-6 col-md-6 col-lg-2">
                     <div class="footer-widget">
                         <h6 class="footer-widget-title">{{ __('Support') }}</h6>
                         <div class="footer-links d-flex">
                             <ul>
-                                {{-- @foreach ($footerRightMenus ?? [] as $footerRightMenu)
+                                @foreach ($footerRightMenus ?? [] as $footerRightMenu)
                                     <li><a href="{{ $footerRightMenu->url }}">{{ __($footerRightMenu->name) }}</a>
                                     </li>
-                                @endforeach --}}
+                                @endforeach
 
                                 <li><a href="{{ route('contact') }}">{{ __('Contact') }}</a></li>
                                 <li><a href="{{ route('support-ticket-faq') }}">{{ __('Support') }}</a></li>
@@ -79,7 +87,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                     <div class="footer-widget footer-contact-info">
                         <h6 class="footer-widget-title">{{ __('Contact Info') }}</h6>
@@ -106,8 +114,8 @@
             <div class="row copyright-wrapper">
                 <div class="col-12 col-md-12 col-lg-4">
                     <div class="footer-payment">
-                        <img src="{{ asset(get_option('app_footer_payment_image') ?? 'frontend/assets/img/payment-cards.png') }}"
-                            alt="payments">
+                        {{-- <img src="{{ asset(get_option('app_footer_payment_image') ?? 'frontend/assets/img/payment-cards.png') }}"
+                            alt="payments"> --}}
                     </div>
                 </div>
                 <div class="col-12 col-md-12 col-lg-4">
@@ -118,11 +126,11 @@
                 <div class="col-12 col-md-12 col-lg-4 pe-lg-0">
                     <div class="footer-bottom-nav">
                         <ul class="d-flex justify-content-end">
-                            <li><a href="{{ route('instructor') }}">{{ __('Instructor') }}</a></li>
+                            {{-- <li><a href="{{ route('instructor') }}">{{ __('Instructor') }}</a></li>
                             <li><a
                                     href="{{ route('student.become-an-instructor') }}">{{ __('Become Instructor') }}</a>
-                            </li>
-                            <li><a href="{{ route('verify_certificate') }}">{{ __('Verify Certificate') }}</a></li>
+                            </li> --}}
+                            {{-- <li><a href="{{ route('verify_certificate') }}">{{ __('Verify Certificate') }}</a></li> --}}
                         </ul>
                     </div>
                 </div>

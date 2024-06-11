@@ -1,51 +1,3 @@
-{{-- @extends('layouts.admin')
-
-@section('content')
-    <div class="container">
-        <h2>Edit Internship</h2>
-
-        <form action="{{ route('internships.update', $internship) }}" method="POST">
-            @csrf
-            @method('PUT')
-
-            <div class="form-group">
-                <label for="title">Title</label>
-                <input type="text" name="title" id="title" class="form-control" value="{{ $internship->title }}"
-                    required>
-            </div>
-            <div class="form-group">
-                <label for="experience_needed">Experience Needed</label>
-                <input type="text" name="experience_needed" id="experience_needed" class="form-control"
-                    value="{{ $internship->experience_needed }}" required>
-            </div>
-            <div class="form-group">
-                <label for="career_level">Career Level</label>
-                <input type="text" name="career_level" id="career_level" class="form-control"
-                    value="{{ $internship->career_level }}" required>
-            </div>
-            <div class="form-group">
-                <label for="education_level">Education Level</label>
-                <input type="text" name="education_level" id="education_level" class="form-control"
-                    value="{{ $internship->education_level }}" required>
-            </div>
-            <div class="form-group">
-                <label for="salary">Salary</label>
-                <input type="text" name="salary" id="salary" class="form-control" value="{{ $internship->salary }}"
-                    required>
-            </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea name="description" id="description" class="form-control" required>{{ $internship->description }}</textarea>
-            </div>
-            <div class="form-group">
-                <label for="requirements">Requirements</label>
-                <textarea name="requirements" id="requirements" class="form-control" required>{{ $internship->requirements }}</textarea>
-            </div>
-
-            <button type="submit" class="btn btn-success">Update</button>
-        </form>
-    </div>
-@endsection --}}
 @extends('layouts.admin')
 
 @section('content')
@@ -57,7 +9,7 @@
                     <div class="breadcrumb__content">
                         <div class="breadcrumb__content__left">
                             <div class="breadcrumb__title">
-                                <h2>{{ __('Add Internship') }}</h2>
+                                {{-- <h2>{{ __('Add Internship') }}</h2> --}}
                             </div>
                         </div>
                         <div class="breadcrumb__content__right">
@@ -66,7 +18,7 @@
                                     <li class="breadcrumb-item"><a
                                             href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a></li>
                                     <li class="breadcrumb-item"><a
-                                            href="{{ route('coupon.index') }}">{{ __('Add Internships') }}</a></li>
+                                            href="{{ route('coupon.index') }}">{{ __('Edit Internships') }}</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -77,7 +29,7 @@
                 <div class="col-md-12">
                     <div class="customers__area bg-style mb-30">
                         <div class="item-title d-flex justify-content-between">
-                            <h2>{{ __('Add Coupon') }}</h2>
+                            {{-- <h2>{{ __('Add Coupon') }}</h2> --}}
                         </div>
                         <form action="{{ route('internships.update', $internship) }}" method="POST"
                             class="form-horizontal"> @method('PUT')

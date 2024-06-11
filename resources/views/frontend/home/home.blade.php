@@ -53,7 +53,7 @@
                                 </h1>
                             </div>
 
-                            <p>{{ __(@$home->banner_subtitle) }} </p>
+                            {{-- <p>{{ __(@$home->banner_subtitle) }} </p> --}}
                             @if (!get_option('private_mode') || !auth()->guest())
                                 <div class="hero-btns">
                                     <a href="{{ route('courses') }}"
@@ -92,8 +92,8 @@
                             <img src="{{ getImageFile(get_option('home_special_feature_first_logo')) }}" alt="feature">
                         </div>
                         <div class="flex-grow-1 ms-3 feature-content">
-                            <h6>{{ __(get_option('home_special_feature_first_title')) }}</h6>
-                            <p>{{ __(get_option('home_special_feature_first_subtitle')) }}</p>
+                            <h6>Training courses</h6>
+                            {{-- <p>{{ __(get_option('home_special_feature_first_subtitle')) }}</p> --}}
                         </div>
                     </div>
                 </div>
@@ -105,8 +105,8 @@
                             <img src="{{ getImageFile(get_option('home_special_feature_second_logo')) }}" alt="feature">
                         </div>
                         <div class="flex-grow-1 ms-3 feature-content">
-                            <h6>{{ __(get_option('home_special_feature_second_title')) }}</h6>
-                            <p>{{ __(get_option('home_special_feature_second_subtitle')) }}</p>
+                            <h6>Conferences and events</h6>
+                            {{-- <p>{{ __(get_option('home_special_feature_second_subtitle')) }}</p> --}}
                         </div>
                     </div>
                 </div>
@@ -118,8 +118,8 @@
                             <img src="{{ getImageFile(get_option('home_special_feature_third_logo')) }}" alt="feature">
                         </div>
                         <div class="flex-grow-1 ms-3 feature-content">
-                            <h6>{{ __(get_option('home_special_feature_third_title')) }}</h6>
-                            <p>{{ __(get_option('home_special_feature_third_subtitle')) }}</p>
+                            <h6>provide internships </h6>
+                            {{-- <p>{{ __(get_option('home_special_feature_third_subtitle')) }}</p> --}}
                         </div>
                     </div>
                 </div>
@@ -144,7 +144,8 @@
                                             src="{{ getImageFile(get_option('course_logo')) }}" alt="Course"></div>
                                     <div>
                                         <h3 class="section-heading">{{ __(get_option('course_title')) }}</h3>
-                                        <p class="section-sub-heading">{{ __(get_option('course_subtitle')) }}</p>
+                                        <p class="section-sub-heading">CHOOSE FROM ONLINE VIDEO COURSES WITH NEW ADDITIONS
+                                        </p>
                                     </div>
                                 </div>
                                 <a href="{{ route('courses') }}"
@@ -156,7 +157,7 @@
                     </div>
 
                     <!-- One to one consultation Slider start -->
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-12">
                             @if (count($featuredCourses))
                                 <!-- Consultation instructor slider items wrap -->
@@ -174,7 +175,7 @@
                                 {{ __('No Course Found') }}
                             @endif
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </section>
             <!-- All Courses Area END -->
@@ -584,8 +585,8 @@
                                         src="{{ getImageFile(get_option('top_instructor_logo')) }}" alt="Our categories">
                                 </div>
                                 <div>
-                                    <h3 class="section-heading">{{ __(get_option('top_instructor_title')) }}</h3>
-                                    <p class="section-sub-heading">{{ __(get_option('top_instructor_subtitle')) }}</p>
+                                    <h3 class="section-heading">Our Top Instructors.</h3>
+                                    <p class="section-sub-heading">CHOOSE FROM ONLINE VIDEO COURSES WITH NEW ADDITIONS</p>
                                 </div>
                             </div>
 
@@ -656,7 +657,7 @@
     @endif
     <!-- Saas Plan End -->
 
-    @if ($home->customer_says_area == 1)
+    {{-- @if ($home->customer_says_area == 1)
         <!-- Customers Says/ testimonial Area Start -->
         <section class="customers-says-area gradient-bg p-0">
             <div class="section-overlay section-t-space section-b-space">
@@ -679,8 +680,7 @@
                             <div class="testimonial-item">
                                 <div class="testimonial-top-content d-flex align-items-center">
                                     <div class="flex-shrink-0 quote-img-wrap">
-                                        <img src="{{ asset('frontend/assets/img/icons-svg/quote.svg') }}"
-                                            alt="quote">
+                                        <img src="{{ asset('frontend/assets/img/icons-svg/quote.svg') }}" alt="quote">
                                     </div>
                                     <div class="flex-grow-1 ms-3 testimonial-content">
                                         <h6 class="font-16">{{ __(get_option('customer_say_first_name')) }}</h6>
@@ -753,7 +753,7 @@
             </div>
         </section>
         <!-- Customers Says/ testimonial Area End -->
-    @endif
+    @endif --}}
 
     @if ($home->achievement_area == 1)
         <!-- Achievement Area Start -->
@@ -768,7 +768,7 @@
                             </div>
                             <div class="flex-grow-1 ms-3 achievement-content">
                                 <h6>{{ __(get_option('achievement_first_title')) }}</h6>
-                                <p>{{ __(get_option('achievement_first_subtitle')) }}</p>
+                                <p>1000+ students</p>
                             </div>
                         </div>
                     </div>
@@ -781,8 +781,8 @@
                                 <img src="{{ getImageFile(get_option('achievement_second_logo')) }}" alt="achievement">
                             </div>
                             <div class="flex-grow-1 ms-3 achievement-content">
-                                <h6>{{ __(get_option('achievement_second_title')) }}</h6>
-                                <p>{{ __(get_option('achievement_second_subtitle')) }}</p>
+                                <h6>Provided Jops</h6>
+                                <p>50+ trainee</p>
                             </div>
                         </div>
                     </div>
@@ -795,8 +795,8 @@
                                 <img src="{{ getImageFile(get_option('achievement_third_logo')) }}" alt="achievement">
                             </div>
                             <div class="flex-grow-1 ms-3 achievement-content">
-                                <h6>{{ __(get_option('achievement_third_title')) }}</h6>
-                                <p>{{ __(get_option('achievement_third_subtitle')) }}</p>
+                                <h6>Provided Internships</h6>
+                                <p>100+ students</p>
                             </div>
                         </div>
                     </div>
@@ -895,12 +895,12 @@
                         <div class="faq-area-right position-relative">
                             <img src="{{ asset('frontend/assets/img/2350619-1.png') }}" alt="faq"
                                 class="img-fluid">
-                            <div class="still-no-luck radius-3 bg-white position-absolute">
+                            {{-- <div class="still-no-luck radius-3 bg-white position-absolute">
                                 <h6>{{ __(get_option('faq_image_title')) }}</h6>
                                 <p>{{ __('Then feel free to') }} <a href="{{ route('contact') }}"
                                         class="text-decoration-underline color-heading">{{ __('Contact With Us') }}</a>,
                                     {{ __('We are 24/7 for you') }}</p>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -910,7 +910,7 @@
     @endif
 
 
-    @if ($home->instructor_support_area == 1)
+    {{-- @if ($home->instructor_support_area == 1)
         <!-- Course Instructor and Support Area Start -->
         <section class="course-instructor-support-area bg-light section-t-space">
             <div class="container">
@@ -955,7 +955,7 @@
             </div>
         </section>
         <!-- Course Instructor and Support Area End -->
-    @endif
+    @endif --}}
 
     @include('frontend.home.partial.consultation-booking-schedule-modal')
 

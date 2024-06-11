@@ -53,6 +53,8 @@
                                             <th>{{ __('description') }}</th>
                                             <th>{{ __('requirements') }}</th>
                                             <th>Actions</th>
+                                            <th></th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -75,27 +77,33 @@
 
 
                                                 <td>
-                                                    <div class="action__buttons">
 
+                                                    <div class="action__buttons">
                                                         <a href="{{ route('internships.edit', $internship) }}"
                                                             class="btn-action mr-30" title="Edit Details">
                                                             <img src="{{ asset('admin/images/icons/edit-2.svg') }}"
                                                                 alt="edit">
                                                         </a>
-                                                        <button class="ms-3">
-                                                            <span data-formid="delete_row_form_" class="deleteItem">
+                                                        <button class="ms-3"
+                                                            onclick="event.preventDefault(); document.getElementById('delete_form_{{ $internship->id }}').submit();">
+                                                            <span data-formid="delete_row_form_{{ $internship->id }}"
+                                                                class="">
                                                                 <img src="{{ asset('admin/images/icons/trash-2.svg') }}"
                                                                     alt="trash">
                                                             </span>
                                                         </button>
-
                                                         <form action="{{ route('internships.destroy', $internship) }}"
-                                                            method="post" id="delete_row_form_">
-                                                            {{ method_field('DELETE') }}
-                                                            <input type="hidden" name="_token"
-                                                                value="{{ csrf_token() }}">
+                                                            method="post" id="delete_form_{{ $internship->id }}"
+                                                            style="display: none;">
+                                                            @csrf
+                                                            @method('DELETE')
                                                         </form>
                                                     </div>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ route('admin.internships.users', $internship->id) }}">
+                                                        <button>Applied Users</button>
+                                                    </a>
                                                 </td>
 
                                             </tr>

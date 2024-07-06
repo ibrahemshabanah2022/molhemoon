@@ -5,15 +5,15 @@
 <div class="landing-menu">
     <section class="menu-section-area @auth isLoginMenu @endauth">
         <!-- Navigation -->
-        <nav class="navbar sticky-header navbar-expand-lg {{ request()->route()->getName() == 'main.index'? 'nav-home': '' }}"
+        <nav class="navbar sticky-header navbar-expand-lg {{ request()->route()->getName() == 'main.index' ? 'nav-home' : '' }}"
             id="mainNav">
             <div class="container-fluid">
-                @if(request()->route()->getName() == 'main.index')
-                <a class="navbar-brand sf-sticky-logo" href="{{ url('/') }}"><img
-                        src="{{ getImageFile(get_option('app_black_logo')) }}" alt="Logo"></a>
+                @if (request()->route()->getName() == 'main.index')
+                    <a class="navbar-brand sf-sticky-logo" href="{{ url('/') }}"><img
+                            src="{{ getImageFile(get_option('app_black_logo')) }}" alt="Logo"></a>
                 @else
-                <a class="navbar-brand sf-sticky-logo" href="{{ url('/') }}"><img
-                                src="{{ getImageFile(get_option('app_logo')) }}" alt="Logo"></a>
+                    <a class="navbar-brand sf-sticky-logo" href="{{ url('/') }}"><img
+                            src="{{ getImageFile(get_option('app_logo')) }}" alt="Logo"></a>
                 @endif
                 <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ getImageFile(get_option('app_logo')) }}"
                         alt="Logo"></a>
@@ -109,7 +109,7 @@
                                         <li class="nav-item">
                                             <a class="nav-link"
                                                 href="{{ route('student.become-an-instructor') }}">{{ __('Become an
-                                                                                                                                                                            Instructor') }}</a>
+                                                                                                                                                                                                                            Instructor') }}</a>
                                         </li>
                                     @endif
                                 @elseif(@$authUser->role == USER_ROLE_INSTRUCTOR || @$authUser->role == USER_ROLE_ORGANIZATION)
@@ -391,14 +391,14 @@
                                                                 {{ __('Organization Course') }}</a>
                                                         </li>
                                                     @endif
-                                                    <li>
+                                                    {{-- <li>
                                                         <a class="dropdown-item"
                                                             href="{{ route('student.my-consultation') }}">
                                                             <span class="iconify mr-15"
                                                                 data-icon="ic:round-support-agent"></span>
                                                             {{ __('My Consultation') }}
                                                         </a>
-                                                    </li>
+                                                    </li> --}}
                                                     @if (isAddonInstalled('LMSZAIPRODUCT'))
                                                         <li>
                                                             <a class="dropdown-item"
@@ -490,7 +490,7 @@
                                                                 href="{{ route('affiliate.become-an-affiliate') }}"><span
                                                                     class="iconify"
                                                                     data-icon="tabler:affiliate"></span>{{ __('Become an
-                                                                                                                                                                                                                                                    Affiliator') }}
+                                                                                                                                                                                                                                                                                                                        Affiliator') }}
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -545,7 +545,7 @@
                                                 <li><a class="dropdown-item"
                                                         href="{{ route('support-ticket-faq') }}"><span class="iconify"
                                                             data-icon="bx:bx-help-circle"></span>{{ __('Help
-                                                                                                                                                                                                                            Support') }}
+                                                                                                                                                                                                                                                                                        Support') }}
                                                     </a></li>
                                                 <li><a class="dropdown-item" href="{{ route('logout') }}"><span
                                                             class="iconify"
@@ -559,7 +559,7 @@
                                     <li class="nav-item  menu-sign-in-btn">
                                         <a href="{{ route('login') }}" class="nav-link theme-button1"
                                             aria-current="page">{{ __('Sign
-                                                                                                                                                                In') }}</a>
+                                                                                                                                                                                                            In') }}</a>
                                     </li>
 
                                     @if (Route::has('register'))

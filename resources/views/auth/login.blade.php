@@ -61,11 +61,11 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-30">
+                            {{-- <div class="row mb-30">
                                 <div class="col-md-12"><a href="{{ route('forget-password') }}"
                                         class="color-hover text-decoration-underline font-medium">{{ __('Forgot Password') }}?</a>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="row mb-2">
                                 <div class="col-md-12">
                                     <button type="submit"
@@ -74,7 +74,7 @@
                             </div>
 
                             <div class="social-media-login-wrap">
-                                @if (env('GOOGLE_LOGIN_STATUS') == 1)
+                                {{-- @if (env('GOOGLE_LOGIN_STATUS') == 1)
                                     <div class="row mb-2">
                                         <div class="col-md-12">
                                             <a href="{{ route('login.google') }}"
@@ -97,7 +97,7 @@
                                                 class="theme-btn theme-button1 theme-button3 font-15 fw-bold w-100 twitter-login">{{ __('Sign in with Twitter') }}</a>
                                         </div>
                                     </div>
-                                @endif
+                                @endif --}}
                                 @if (env('LOGIN_HELP') == 'active')
                                     <div class="table-responsive login-info-table mt-3">
                                         <table class="table table-bordered">

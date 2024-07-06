@@ -266,8 +266,13 @@
     <!-- Course Instructor and Support Area Start -->
     <section class="course-instructor-support-area bg-light section-t-space">
         <div class="container">
-
-
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title text-center">
+                        <h3 class="section-heading">Partners</h3>
+                    </div>
+                </div>
+            </div>
             <!-- Client Logo Area start-->
             <div class="row client-logo-area">
                 <div class="col" style="background-color: rgb(202, 202, 202);">

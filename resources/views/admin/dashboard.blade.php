@@ -24,7 +24,7 @@
             </div>
             <div class="row">
 
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                {{-- <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="status__box status__box__v3 bg-style">
                         <div class="status__box__img">
                             <img src="{{ asset('admin') }}/images/admin-dashboard-icons/principal.png" alt="icon">
@@ -34,7 +34,7 @@
                             <h3>{{ __('Total Admin') }}</h3>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="status__box status__box__v3 bg-style">
                         <div class="status__box__img">
@@ -137,7 +137,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                {{-- <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="status__box status__box__v3 bg-style">
                         <div class="status__box__img">
                             <img src="{{ asset('admin') }}/images/admin-dashboard-icons/blogger.png" alt="icon">
@@ -147,7 +147,7 @@
                             <h3>{{ __('Total Blogs') }}</h3>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="status__box status__box__v3 bg-style">
                         <div class="status__box__img">
@@ -177,7 +177,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                {{-- <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="status__box status__box__v3 bg-style">
                         <div class="status__box__img">
                             <img src="images/admin-dashboard-icons/commission-1.png" alt="icon">
@@ -194,8 +194,8 @@
                             <h3>{{ __('Total Platform Charge') }}</h3>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                </div> --}}
+                {{-- <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="status__box status__box__v3 bg-style">
                         <div class="status__box__img">
                             <img src="images/admin-dashboard-icons/money-loss.png" alt="icon">
@@ -212,8 +212,8 @@
                             <h3>{{ __('Total Platform Charge (Current Month)') }}</h3>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                </div> --}}
+                {{-- <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="status__box status__box__v3 bg-style">
                         <div class="status__box__img">
                             <img src="{{ asset('admin') }}/images/admin-dashboard-icons/discount.png" alt="icon">
@@ -230,7 +230,7 @@
                             <h3>{{ __('Total Sell Commission') }}</h3>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="status__box status__box__v3 bg-style">
                         <div class="status__box__img">
@@ -265,7 +265,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                {{-- <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="status__box status__box__v3 bg-style">
                         <div class="status__box__img">
                             <img src="{{ asset('admin') }}/images/admin-dashboard-icons/economy.png" alt="icon">
@@ -281,8 +281,8 @@
                             <h3>{{ __('Total Request Withdraw') }}</h3>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                </div> --}}
+                {{-- <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="status__box status__box__v3 bg-style">
                         <div class="status__box__img">
                             <img src="{{ asset('admin') }}/images/admin-dashboard-icons/save-money.png" alt="icon">
@@ -298,7 +298,7 @@
                             <h3>{{ __('Total Complete Withdraw') }}</h3>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
 
@@ -313,7 +313,7 @@
                             </div>
                             <div class="revenue__chart-v2__top__right">
                                 <div class="revenue__chart-v2__list">
-                                    <nav>
+                                    {{-- <nav>
                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                             <button class="nav-link" id="nav-two-tab" data-bs-toggle="tab"
                                                 data-bs-target="#nav-two" type="button" role="tab"
@@ -326,7 +326,7 @@
                                                 {{ __('Year') }}
                                             </button>
                                         </div>
-                                    </nav>
+                                    </nav> --}}
                                 </div>
                             </div>
                         </div>
@@ -335,7 +335,7 @@
                                 {{ __('Total Enrollment') }} <span>{{ $total_enrolments }}</span>
                             </h2>
                         </div>
-                        <div class="tab-content" id="nav-tabContent">
+                        {{-- <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade" id="nav-two" role="tabpanel" aria-labelledby="nav-two-tab">
                                 <div id="chartMonth"></div>
                             </div>
@@ -343,7 +343,7 @@
                                 aria-labelledby="nav-three-tab">
                                 <div id="chartYear"></div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -391,7 +391,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                {{-- <div class="col-md-6">
                     <div class="top-products__area bg-style">
                         <div class="d-flex align-items-center justify-content-between mb-2">
                             <h2>{{ __('Requested Withdrawal') }}</h2>
@@ -472,11 +472,10 @@
                             </table>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
-
 @endsection
 
 @push('script')

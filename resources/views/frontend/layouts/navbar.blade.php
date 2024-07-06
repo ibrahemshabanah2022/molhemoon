@@ -101,7 +101,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link"
                                             href="{{ route('student.become-an-instructor') }}">{{ __('Become an
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Instructor') }}</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Instructor') }}</a>
                                     </li>
                                 @endif
                             @elseif(@$authUser->role == USER_ROLE_INSTRUCTOR || @$authUser->role == USER_ROLE_ORGANIZATION)
@@ -179,7 +179,7 @@
                                 </li>
                             </ul>
                         </li> --}}
-                        <li class="nav-item dropdown menu-round-btn menu-language-btn dropdown-top-space">
+                        {{-- <li class="nav-item dropdown menu-round-btn menu-language-btn dropdown-top-space">
                             <a class="nav-link" href="#">
                                 <img src="{{ asset($selectedLanguage->flag) }}" alt="Flag" class="radius-50">
                             </a>
@@ -191,8 +191,8 @@
                                                 class="radius-50">{{ $app_lang->language }}</a></li>
                                 @endforeach
                             </ul>
-                        </li>
-                        @if (@$authUser->role != USER_ROLE_ADMIN)
+                        </li> --}}
+                        {{-- @if (@$authUser->role != USER_ROLE_ADMIN)
                             @if (auth::user())
                                 <!-- Menu Notification Option Start -->
                                 <li class="nav-item dropdown menu-round-btn menu-notification-btn dropdown-top-space">
@@ -209,8 +209,8 @@
                                             role="tablist">
                                             <li class="nav-item" role="presentation">
                                                 <button class="nav-link active" id="pills-student-tab"
-                                                    data-bs-toggle="pill" data-bs-target="#pills-student"
-                                                    type="button" role="tab" aria-controls="pills-student"
+                                                    data-bs-toggle="pill" data-bs-target="#pills-student" type="button"
+                                                    role="tab" aria-controls="pills-student"
                                                     aria-selected="false">{{ __('Student') }}</button>
                                             </li>
                                             <li class="nav-item" role="presentation">
@@ -337,7 +337,7 @@
                                 </a>
                             </li>
                             <!-- Menu Cart Option End -->
-                        @endif
+                        @endif --}}
                         @if (Route::has('login'))
                             @auth
 
@@ -358,8 +358,7 @@
                                 <!-- Menu User Dropdown Menu Option Start -->
                                 <li class="nav-item dropdown menu-round-btn menu-user-btn dropdown-top-space">
                                     <a class="nav-link" href="#">
-                                        <img src="{{ asset(auth::user()->image_path) }}" alt="user"
-                                            class="radius-50">
+                                        <img src="{{ asset(auth::user()->image_path) }}" alt="user" class="radius-50">
                                     </a>
                                     <div class="dropdown-menu-profile dropdown-menu {{ $selectedLanguage->rtl == 1 ? 'dropdown-menu-start' : 'dropdown-menu-end' }}"
                                         data-bs-popper="none">
@@ -401,14 +400,14 @@
                                                             {{ __('Organization Course') }}</a>
                                                     </li>
                                                 @endif
-                                                <li>
+                                                {{-- <li>
                                                     <a class="dropdown-item"
                                                         href="{{ route('student.my-consultation') }}">
                                                         <span class="iconify mr-15"
                                                             data-icon="ic:round-support-agent"></span>
                                                         {{ __('My Consultation') }}
                                                     </a>
-                                                </li>
+                                                </li> --}}
                                                 @if (isAddonInstalled('LMSZAIPRODUCT'))
                                                     <li>
                                                         <a class="dropdown-item"
@@ -495,7 +494,7 @@
                                                             href="{{ route('affiliate.become-an-affiliate') }}"><span
                                                                 class="iconify"
                                                                 data-icon="tabler:affiliate"></span>{{ __('Become an
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Affiliator') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Affiliator') }}
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -549,7 +548,7 @@
                                             <li><a class="dropdown-item" href="{{ route('support-ticket-faq') }}"><span
                                                         class="iconify"
                                                         data-icon="bx:bx-help-circle"></span>{{ __('Help
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Support') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Support') }}
                                                 </a></li>
                                             <li><a class="dropdown-item" href="{{ route('logout') }}"><span
                                                         class="iconify"
@@ -563,7 +562,7 @@
                                 <li class="nav-item  menu-sign-in-btn">
                                     <a href="{{ route('login') }}" class="nav-link theme-button1"
                                         aria-current="page">{{ __('Sign
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            In') }}</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    In') }}</a>
                                 </li>
 
                                 @if (Route::has('register'))

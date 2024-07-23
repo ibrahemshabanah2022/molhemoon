@@ -447,7 +447,9 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body">
-                    <div class="video-player-area">
+                    <div class="video-player-area position-relative">
+                        <div class="overlay position-absolute w-100"
+                            style="top: 0; left: 0; height: 88%; opacity: 0.5; z-index: 10;"></div>
                         @if ($course->intro_video_check == 1 && getVideoFile($course->video))
                             <!-- HTML 5 Video -->
                             <video id="player2" playsinline controls data-poster="{{ getImageFile($course->image) }}"
@@ -466,6 +468,30 @@
                 </div>
             </div>
         </div>
+
+
+        {{-- <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="video-player-area">
+                        @if ($course->intro_video_check == 1 && getVideoFile($course->video))
+                            <!-- HTML 5 Video -->
+                            <video id="player2" playsinline controls data-poster="{{ getImageFile($course->image) }}"
+                                controlsList="nodownload">
+                                <source src="{{ getVideoFile($course->video) }}" type="video/mp4">
+                            </video>
+                        @endif
+                        @if ($course->intro_video_check == 2 && $course->youtube_video_id)
+                            <div class="plyr__video-embed" id="youtubePlayer2">
+                                <iframe src="https://www.youtube.com/embed/{{ @$course->youtube_video_id }}"
+                                    allowfullscreen allowtransparency allow="autoplay">
+                                </iframe>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div> --}}
     </div>
     <!-- New Video Player Modal End-->
 
@@ -630,5 +656,21 @@
                 localStorage.setItem('ref', JSON.stringify(all_ref));
             }
         }
+    </script>
+    <script>
+        // Disable right-click and inspect element
+        document.addEventListener("contextmenu", (event) =>
+            event.preventDefault()
+        );
+        document.addEventListener("keydown", (event) => {
+            if (
+                event.key === "F12" ||
+                (event.ctrlKey && event.shiftKey && event.key === "I") ||
+                (event.ctrlKey && event.shiftKey && event.key === "C") ||
+                (event.ctrlKey && event.shiftKey && event.key === "J")
+            ) {
+                event.preventDefault();
+            }
+        });
     </script>
 @endpush

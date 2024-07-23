@@ -42,7 +42,7 @@
     <!--=======================================
       All Css Style link
     ===========================================-->
-
+    
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('frontend/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 

@@ -43,9 +43,9 @@
                             class="{{ @$subNavCourseAddActiveClass }}">{{ __('Add Course') }}</a></li>
                 </ul>
             </li>
-            <li><a href="{{ route('organization.bundle-course.index') }}"
+            {{-- <li><a href="{{ route('organization.bundle-course.index') }}"
                     class="{{ @$navBundleCourseActiveClass }}"><span class="iconify mr-15"
-                        data-icon="eos-icons:machine-learning-outlined"></span>{{ __('Bundles Courses') }}</a></li>
+                        data-icon="eos-icons:machine-learning-outlined"></span>{{ __('Bundles Courses') }}</a></li> --}}
             <li><a href="{{ route('organization.notice-board.course-notice.index') }}"
                     class="{{ @$navNoticeBoardActiveClass }}"><span class="iconify mr-15"
                         data-icon="ep:data-board"></span>{{ __('Notice Board') }}</a></li>

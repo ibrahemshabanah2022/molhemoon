@@ -637,11 +637,11 @@
                             </div>
 
                             <!-- section button start-->
-                            <div class="col-12 section-btn">
+                            {{-- <div class="col-12 section-btn">
                                 <a href="{{ route('student.become-an-instructor') }}"
                                     class="theme-btn theme-button1">{{ __('Become an Instructor') }} <i
                                         data-feather="arrow-right"></i></a>
-                            </div>
+                            </div> --}}
                             <!-- section button end-->
                         </div>
                     </div>
